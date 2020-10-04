@@ -1,0 +1,9 @@
+RMLs	Sub-Bucket	Segment	Bucket_ID	Bucket Name	RML_Pair
+RMA	Unrestricted	Transient Direct	ABEF	Transient BAR	AE
+RMB	Advance Saver	Transient Direct	ABEF	Transient BAR	BF
+RMC	Super Advance Saver	Transient Direct	CDGH	Transient Promotions	CG
+RMD	Promotions	Transient Direct	CDGH	Transient Promotions	DH
+RME	Unrestricted	Transient Distribution	ABEF	Transient BAR	AE
+RMF	Advance Saver	Transient Distribution	ABEF	Transient BAR	BF
+RMG	Super Advance Saver	Transient Distribution	CDGH	Transient Promotions	CG
+RMH	Promotions	Transient Distribution	CDGH	Transient Promotions	DH

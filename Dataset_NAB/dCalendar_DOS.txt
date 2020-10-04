@@ -1,0 +1,731 @@
+Dates_DOS	Season	Major Events	Date_of_Week	DoW_Nr	WD_WE	Month
+2018-12-31	Mid	NE	Mon	2	WD	Dec
+2018-12-30	Mid	NE	Sun	1	WD	Dec
+2018-12-29	Mid	NE	Sat	7	WE	Dec
+2018-12-28	Mid	NE	Fri	6	WE	Dec
+2018-12-27	Mid		Thu	5	WE	Dec
+2018-12-26	Mid		Wed	4	WD	Dec
+2018-12-25	Mid		Tue	3	WD	Dec
+2018-12-24	Mid		Mon	2	WD	Dec
+2018-12-23	Mid		Sun	1	WD	Dec
+2018-12-22	Mid		Sat	7	WE	Dec
+2018-12-21	Mid		Fri	6	WE	Dec
+2018-12-20	Mid		Thu	5	WE	Dec
+2018-12-19	Mid		Wed	4	WD	Dec
+2018-12-18	Mid		Tue	3	WD	Dec
+2018-12-17	Mid		Mon	2	WD	Dec
+2018-12-16	Mid		Sun	1	WD	Dec
+2018-12-15	Mid		Sat	7	WE	Dec
+2018-12-14	Mid		Fri	6	WE	Dec
+2018-12-13	Mid		Thu	5	WE	Dec
+2018-12-12	Mid		Wed	4	WD	Dec
+2018-12-11	Mid		Tue	3	WD	Dec
+2018-12-10	Mid		Mon	2	WD	Dec
+2018-12-09	Mid		Sun	1	WD	Dec
+2018-12-08	Mid		Sat	7	WE	Dec
+2018-12-07	Mid		Fri	6	WE	Dec
+2018-12-06	Mid		Thu	5	WE	Dec
+2018-12-05	Mid		Wed	4	WD	Dec
+2018-12-04	Mid		Tue	3	WD	Dec
+2018-12-03	Mid		Mon	2	WD	Dec
+2018-12-02	Mid		Sun	1	WD	Dec
+2018-12-01	Mid		Sat	7	WE	Dec
+2018-11-30	High		Fri	6	WE	Nov
+2018-11-29	High	BIG 5	Thu	5	WE	Nov
+2018-11-28	High	BIG 5	Wed	4	WD	Nov
+2018-11-27	High	BIG 5	Tue	3	WD	Nov
+2018-11-26	High	BIG 5	Mon	2	WD	Nov
+2018-11-25	High		Sun	1	WD	Nov
+2018-11-24	High		Sat	7	WE	Nov
+2018-11-23	High		Fri	6	WE	Nov
+2018-11-22	High		Thu	5	WE	Nov
+2018-11-21	High		Wed	4	WD	Nov
+2018-11-20	High		Tue	3	WD	Nov
+2018-11-19	High		Mon	2	WD	Nov
+2018-11-18	High		Sun	1	WD	Nov
+2018-11-17	High		Sat	7	WE	Nov
+2018-11-16	High		Fri	6	WE	Nov
+2018-11-15	High		Thu	5	WE	Nov
+2018-11-14	High		Wed	4	WD	Nov
+2018-11-13	High		Tue	3	WD	Nov
+2018-11-12	High		Mon	2	WD	Nov
+2018-11-11	High		Sun	1	WD	Nov
+2018-11-10	High		Sat	7	WE	Nov
+2018-11-09	High		Fri	6	WE	Nov
+2018-11-08	High	Gulfood	Thu	5	WE	Nov
+2018-11-07	High	Gulfood	Wed	4	WD	Nov
+2018-11-06	High	Gulfood	Tue	3	WD	Nov
+2018-11-05	High		Mon	2	WD	Nov
+2018-11-04	High		Sun	1	WD	Nov
+2018-11-03	High		Sat	7	WE	Nov
+2018-11-02	High		Fri	6	WE	Nov
+2018-11-01	High		Thu	5	WE	Nov
+2018-10-31	Low		Wed	4	WD	Oct
+2018-10-30	Low		Tue	3	WD	Oct
+2018-10-29	Low		Mon	2	WD	Oct
+2018-10-28	Low		Sun	1	WD	Oct
+2018-10-27	Low		Sat	7	WE	Oct
+2018-10-26	Low		Fri	6	WE	Oct
+2018-10-25	Low		Thu	5	WE	Oct
+2018-10-24	Low		Wed	4	WD	Oct
+2018-10-23	Low		Tue	3	WD	Oct
+2018-10-22	Low		Mon	2	WD	Oct
+2018-10-21	Low		Sun	1	WD	Oct
+2018-10-20	Low		Sat	7	WE	Oct
+2018-10-19	Low		Fri	6	WE	Oct
+2018-10-18	Low	GITEX	Thu	5	WE	Oct
+2018-10-17	Low	GITEX	Wed	4	WD	Oct
+2018-10-16	Low	GITEX	Tue	3	WD	Oct
+2018-10-15	Low	GITEX	Mon	2	WD	Oct
+2018-10-14	Low	GITEX	Sun	1	WD	Oct
+2018-10-13	Low		Sat	7	WE	Oct
+2018-10-12	Low		Fri	6	WE	Oct
+2018-10-11	Low		Thu	5	WE	Oct
+2018-10-10	Low		Wed	4	WD	Oct
+2018-10-09	Low		Tue	3	WD	Oct
+2018-10-08	Low		Mon	2	WD	Oct
+2018-10-07	Low		Sun	1	WD	Oct
+2018-10-06	Low	GITEX Shopper	Sat	7	WE	Oct
+2018-10-05	Low	GITEX Shopper	Fri	6	WE	Oct
+2018-10-04	Low	GITEX Shopper	Thu	5	WE	Oct
+2018-10-03	Low	GITEX Shopper	Wed	4	WD	Oct
+2018-10-02	Low	GITEX Shopper	Tue	3	WD	Oct
+2018-10-01	Low		Mon	2	WD	Oct
+2018-09-30	Low		Sun	1	WD	Sep
+2018-09-29	Low		Sat	7	WE	Sep
+2018-09-28	Low		Fri	6	WE	Sep
+2018-09-27	Low		Thu	5	WE	Sep
+2018-09-26	Low		Wed	4	WD	Sep
+2018-09-25	Low		Tue	3	WD	Sep
+2018-09-24	Low		Mon	2	WD	Sep
+2018-09-23	Low		Sun	1	WD	Sep
+2018-09-22	Low		Sat	7	WE	Sep
+2018-09-21	Low		Fri	6	WE	Sep
+2018-09-20	Low		Thu	5	WE	Sep
+2018-09-19	Low		Wed	4	WD	Sep
+2018-09-18	Low		Tue	3	WD	Sep
+2018-09-17	Low		Mon	2	WD	Sep
+2018-09-16	Low		Sun	1	WD	Sep
+2018-09-15	Low		Sat	7	WE	Sep
+2018-09-14	Low		Fri	6	WE	Sep
+2018-09-13	Low		Thu	5	WE	Sep
+2018-09-12	Low		Wed	4	WD	Sep
+2018-09-11	Low		Tue	3	WD	Sep
+2018-09-10	Low		Mon	2	WD	Sep
+2018-09-09	Low		Sun	1	WD	Sep
+2018-09-08	Low		Sat	7	WE	Sep
+2018-09-07	Low		Fri	6	WE	Sep
+2018-09-06	Low		Thu	5	WE	Sep
+2018-09-05	Low		Wed	4	WD	Sep
+2018-09-04	Low		Tue	3	WD	Sep
+2018-09-03	Low		Mon	2	WD	Sep
+2018-09-02	Low		Sun	1	WD	Sep
+2018-09-01	Low		Sat	7	WE	Sep
+2018-08-31	Low		Fri	6	WE	Aug
+2018-08-30	Low		Thu	5	WE	Aug
+2018-08-29	Low		Wed	4	WD	Aug
+2018-08-28	Low		Tue	3	WD	Aug
+2018-08-27	Low		Mon	2	WD	Aug
+2018-08-26	Low		Sun	1	WD	Aug
+2018-08-25	Low	 EID AL ADHA 	Sat	7	WE	Aug
+2018-08-24	Low	 EID AL ADHA 	Fri	6	WE	Aug
+2018-08-23	Low	 EID AL ADHA 	Thu	5	WE	Aug
+2018-08-22	Low	 EID AL ADHA 	Wed	4	WD	Aug
+2018-08-21	Low	 EID AL ADHA 	Tue	3	WD	Aug
+2018-08-20	Low		Mon	2	WD	Aug
+2018-08-19	Low		Sun	1	WD	Aug
+2018-08-18	Low		Sat	7	WE	Aug
+2018-08-17	Low		Fri	6	WE	Aug
+2018-08-16	Low		Thu	5	WE	Aug
+2018-08-15	Low		Wed	4	WD	Aug
+2018-08-14	Low		Tue	3	WD	Aug
+2018-08-13	Low		Mon	2	WD	Aug
+2018-08-12	Low		Sun	1	WD	Aug
+2018-08-11	Low		Sat	7	WE	Aug
+2018-08-10	Low		Fri	6	WE	Aug
+2018-08-09	Low		Thu	5	WE	Aug
+2018-08-08	Low		Wed	4	WD	Aug
+2018-08-07	Low		Tue	3	WD	Aug
+2018-08-06	Low		Mon	2	WD	Aug
+2018-08-05	Low		Sun	1	WD	Aug
+2018-08-04	Low		Sat	7	WE	Aug
+2018-08-03	Low		Fri	6	WE	Aug
+2018-08-02	Low		Thu	5	WE	Aug
+2018-08-01	Low		Wed	4	WD	Aug
+2018-07-31	Low		Tue	3	WD	Jul
+2018-07-30	Low		Mon	2	WD	Jul
+2018-07-29	Low		Sun	1	WD	Jul
+2018-07-28	Low		Sat	7	WE	Jul
+2018-07-27	Low		Fri	6	WE	Jul
+2018-07-26	Low		Thu	5	WE	Jul
+2018-07-25	Low		Wed	4	WD	Jul
+2018-07-24	Low		Tue	3	WD	Jul
+2018-07-23	Low		Mon	2	WD	Jul
+2018-07-22	Low		Sun	1	WD	Jul
+2018-07-21	Low		Sat	7	WE	Jul
+2018-07-20	Low		Fri	6	WE	Jul
+2018-07-19	Low		Thu	5	WE	Jul
+2018-07-18	Low		Wed	4	WD	Jul
+2018-07-17	Low		Tue	3	WD	Jul
+2018-07-16	Low		Mon	2	WD	Jul
+2018-07-15	Low		Sun	1	WD	Jul
+2018-07-14	Low		Sat	7	WE	Jul
+2018-07-13	Low		Fri	6	WE	Jul
+2018-07-12	Low		Thu	5	WE	Jul
+2018-07-11	Low		Wed	4	WD	Jul
+2018-07-10	Low		Tue	3	WD	Jul
+2018-07-09	Low		Mon	2	WD	Jul
+2018-07-08	Low		Sun	1	WD	Jul
+2018-07-07	Low		Sat	7	WE	Jul
+2018-07-06	Low		Fri	6	WE	Jul
+2018-07-05	Low		Thu	5	WE	Jul
+2018-07-04	Low		Wed	4	WD	Jul
+2018-07-03	Low		Tue	3	WD	Jul
+2018-07-02	Low		Mon	2	WD	Jul
+2018-07-01	Low		Sun	1	WD	Jul
+2018-06-30	Mid		Sat	7	WE	Jun
+2018-06-29	Mid		Fri	6	WE	Jun
+2018-06-28	Mid		Thu	5	WE	Jun
+2018-06-27	Mid		Wed	4	WD	Jun
+2018-06-26	Mid		Tue	3	WD	Jun
+2018-06-25	Mid		Mon	2	WD	Jun
+2018-06-24	Mid		Sun	1	WD	Jun
+2018-06-23	Mid		Sat	7	WE	Jun
+2018-06-22	Mid		Fri	6	WE	Jun
+2018-06-21	Mid		Thu	5	WE	Jun
+2018-06-20	Mid		Wed	4	WD	Jun
+2018-06-19	Mid		Tue	3	WD	Jun
+2018-06-18	Mid		Mon	2	WD	Jun
+2018-06-17	Mid	"EID-AL FITR"	Sun	1	WD	Jun
+2018-06-16	Mid	"EID-AL FITR"	Sat	7	WE	Jun
+2018-06-15	Mid	"EID-AL FITR"	Fri	6	WE	Jun
+2018-06-14	Ramadan	"EID-AL FITR"	Thu	5	WE	Jun
+2018-06-13	Ramadan		Wed	4	WD	Jun
+2018-06-12	Ramadan		Tue	3	WD	Jun
+2018-06-11	Ramadan		Mon	2	WD	Jun
+2018-06-10	Ramadan		Sun	1	WD	Jun
+2018-06-09	Ramadan		Sat	7	WE	Jun
+2018-06-08	Ramadan		Fri	6	WE	Jun
+2018-06-07	Ramadan		Thu	5	WE	Jun
+2018-06-06	Ramadan		Wed	4	WD	Jun
+2018-06-05	Ramadan		Tue	3	WD	Jun
+2018-06-04	Ramadan		Mon	2	WD	Jun
+2018-06-03	Ramadan		Sun	1	WD	Jun
+2018-06-02	Ramadan		Sat	7	WE	Jun
+2018-06-01	Ramadan		Fri	6	WE	Jun
+2018-05-31	Ramadan		Thu	5	WE	May
+2018-05-30	Ramadan		Wed	4	WD	May
+2018-05-29	Ramadan		Tue	3	WD	May
+2018-05-28	Ramadan		Mon	2	WD	May
+2018-05-27	Ramadan		Sun	1	WD	May
+2018-05-26	Ramadan		Sat	7	WE	May
+2018-05-25	Ramadan		Fri	6	WE	May
+2018-05-24	Ramadan		Thu	5	WE	May
+2018-05-23	Ramadan		Wed	4	WD	May
+2018-05-22	Ramadan		Tue	3	WD	May
+2018-05-21	Ramadan		Mon	2	WD	May
+2018-05-20	Ramadan		Sun	1	WD	May
+2018-05-19	Ramadan		Sat	7	WE	May
+2018-05-18	Ramadan		Fri	6	WE	May
+2018-05-17	Ramadan		Thu	5	WE	May
+2018-05-16	Ramadan		Wed	4	WD	May
+2018-05-15	Ramadan		Tue	3	WD	May
+2018-05-14	Low		Mon	2	WD	May
+2018-05-13	Low		Sun	1	WD	May
+2018-05-12	Low		Sat	7	WE	May
+2018-05-11	Low		Fri	6	WE	May
+2018-05-10	Low		Thu	5	WE	May
+2018-05-09	Low		Wed	4	WD	May
+2018-05-08	Low		Tue	3	WD	May
+2018-05-07	Low		Mon	2	WD	May
+2018-05-06	Low		Sun	1	WD	May
+2018-05-05	Low		Sat	7	WE	May
+2018-05-04	Low		Fri	6	WE	May
+2018-05-03	Low		Thu	5	WE	May
+2018-05-02	Low		Wed	4	WD	May
+2018-05-01	Low		Tue	3	WD	May
+2018-04-30	High		Mon	2	WD	Apr
+2018-04-29	High		Sun	1	WD	Apr
+2018-04-28	High		Sat	7	WE	Apr
+2018-04-27	High		Fri	6	WE	Apr
+2018-04-26	High		Thu	5	WE	Apr
+2018-04-25	High		Wed	4	WD	Apr
+2018-04-24	High		Tue	3	WD	Apr
+2018-04-23	High		Mon	2	WD	Apr
+2018-04-22	High		Sun	1	WD	Apr
+2018-04-21	High		Sat	7	WE	Apr
+2018-04-20	High		Fri	6	WE	Apr
+2018-04-19	High		Thu	5	WE	Apr
+2018-04-18	High		Wed	4	WD	Apr
+2018-04-17	High		Tue	3	WD	Apr
+2018-04-16	High		Mon	2	WD	Apr
+2018-04-15	High	GETEX Spring	Sun	1	WD	Apr
+2018-04-14	High	GETEX Spring	Sat	7	WE	Apr
+2018-04-13	High	GETEX Spring	Fri	6	WE	Apr
+2018-04-12	High	GETEX Spring	Thu	5	WE	Apr
+2018-04-11	High	GETEX Spring	Wed	4	WD	Apr
+2018-04-10	High	GETEX Spring	Tue	3	WD	Apr
+2018-04-09	High		Mon	2	WD	Apr
+2018-04-08	High	GITEX Shopper	Sun	1	WD	Apr
+2018-04-07	High	GITEX Shopper	Sat	7	WE	Apr
+2018-04-06	High	GITEX Shopper	Fri	6	WE	Apr
+2018-04-05	High	GITEX Shopper	Thu	5	WE	Apr
+2018-04-04	High	GITEX Shopper	Wed	4	WD	Apr
+2018-04-03	High		Tue	3	WD	Apr
+2018-04-02	High		Mon	2	WD	Apr
+2018-04-01	High		Sun	1	WD	Apr
+2018-03-31	High		Sat	7	WE	Mar
+2018-03-30	High	Big 5 Heavy	Fri	6	WE	Mar
+2018-03-29	High	Big 5 Heavy	Thu	5	WE	Mar
+2018-03-28	High	Big 5 Heavy	Wed	4	WD	Mar
+2018-03-27	High	Big 5 Heavy	Tue	3	WD	Mar
+2018-03-26	High	Big 5 Heavy	Mon	2	WD	Mar
+2018-03-25	High	Big 5 Heavy	Sun	1	WD	Mar
+2018-03-24	High	Big 5 Heavy	Sat	7	WE	Mar
+2018-03-23	High		Fri	6	WE	Mar
+2018-03-22	High		Thu	5	WE	Mar
+2018-03-21	High	Arab Lab	Wed	4	WD	Mar
+2018-03-20	High	Arab Lab	Tue	3	WD	Mar
+2018-03-19	High	Arab Lab	Mon	2	WD	Mar
+2018-03-18	High		Sun	1	WD	Mar
+2018-03-17	High		Sat	7	WE	Mar
+2018-03-16	High		Fri	6	WE	Mar
+2018-03-15	High		Thu	5	WE	Mar
+2018-03-14	High		Wed	4	WD	Mar
+2018-03-13	High		Tue	3	WD	Mar
+2018-03-12	High		Mon	2	WD	Mar
+2018-03-11	High		Sun	1	WD	Mar
+2018-03-10	High		Sat	7	WE	Mar
+2018-03-09	High		Fri	6	WE	Mar
+2018-03-08	High		Thu	5	WE	Mar
+2018-03-07	High		Wed	4	WD	Mar
+2018-03-06	High		Tue	3	WD	Mar
+2018-03-05	High		Mon	2	WD	Mar
+2018-03-04	High		Sun	1	WD	Mar
+2018-03-03	High		Sat	7	WE	Mar
+2018-03-02	High		Fri	6	WE	Mar
+2018-03-01	High		Thu	5	WE	Mar
+2018-02-28	High		Wed	4	WD	Feb
+2018-02-27	High		Tue	3	WD	Feb
+2018-02-26	High		Mon	2	WD	Feb
+2018-02-25	High		Sun	1	WD	Feb
+2018-02-24	High		Sat	7	WE	Feb
+2018-02-23	High		Fri	6	WE	Feb
+2018-02-22	High		Thu	5	WE	Feb
+2018-02-21	High	Gulfood	Wed	4	WD	Feb
+2018-02-20	High	Gulfood	Tue	3	WD	Feb
+2018-02-19	High	Gulfood	Mon	2	WD	Feb
+2018-02-18	High	Gulfood	Sun	1	WD	Feb
+2018-02-17	High		Sat	7	WE	Feb
+2018-02-16	High		Fri	6	WE	Feb
+2018-02-15	High		Thu	5	WE	Feb
+2018-02-14	High		Wed	4	WD	Feb
+2018-02-13	High		Tue	3	WD	Feb
+2018-02-12	High		Mon	2	WD	Feb
+2018-02-11	High		Sun	1	WD	Feb
+2018-02-10	High		Sat	7	WE	Feb
+2018-02-09	High		Fri	6	WE	Feb
+2018-02-08	High		Thu	5	WE	Feb
+2018-02-07	High		Wed	4	WD	Feb
+2018-02-06	High		Tue	3	WD	Feb
+2018-02-05	High		Mon	2	WD	Feb
+2018-02-04	High		Sun	1	WD	Feb
+2018-02-03	High		Sat	7	WE	Feb
+2018-02-02	High		Fri	6	WE	Feb
+2018-02-01	High	Arab Health	Thu	5	WE	Feb
+2018-01-31	High	Arab Health	Wed	4	WD	Jan
+2018-01-30	High	Arab Health	Tue	3	WD	Jan
+2018-01-29	High	Arab Health	Mon	2	WD	Jan
+2018-01-28	High	Arab Health	Sun	1	WD	Jan
+2018-01-27	High		Sat	7	WE	Jan
+2018-01-26	High		Fri	6	WE	Jan
+2018-01-25	High		Thu	5	WE	Jan
+2018-01-24	High		Wed	4	WD	Jan
+2018-01-23	High		Tue	3	WD	Jan
+2018-01-22	High		Mon	2	WD	Jan
+2018-01-21	High		Sun	1	WD	Jan
+2018-01-20	High		Sat	7	WE	Jan
+2018-01-19	High		Fri	6	WE	Jan
+2018-01-18	High		Thu	5	WE	Jan
+2018-01-17	High		Wed	4	WD	Jan
+2018-01-16	High		Tue	3	WD	Jan
+2018-01-15	High		Mon	2	WD	Jan
+2018-01-14	High		Sun	1	WD	Jan
+2018-01-13	High		Sat	7	WE	Jan
+2018-01-12	High		Fri	6	WE	Jan
+2018-01-11	High		Thu	5	WE	Jan
+2018-01-10	High	Arabplast	Wed	4	WD	Jan
+2018-01-09	High	Arabplast	Tue	3	WD	Jan
+2018-01-08	High	Arabplast	Mon	2	WD	Jan
+2018-01-07	High		Sun	1	WD	Jan
+2018-01-06	High		Sat	7	WE	Jan
+2018-01-05	High		Fri	6	WE	Jan
+2018-01-04	High		Thu	5	WE	Jan
+2018-01-03	High		Wed	4	WD	Jan
+2018-01-02	High	NY	Tue	3	WD	Jan
+2018-01-01	High	NY	Mon	2	WD	Jan
+2017-12-31	Mid	NE	Sun	1	WD	Dec
+2017-12-30	Mid	NE	Sat	7	WE	Dec
+2017-12-29	Mid	NE	Fri	6	WE	Dec
+2017-12-28	Mid	NE	Thu	5	WE	Dec
+2017-12-27	Mid		Wed	4	WD	Dec
+2017-12-26	Mid		Tue	3	WD	Dec
+2017-12-25	Mid		Mon	2	WD	Dec
+2017-12-24	Mid		Sun	1	WD	Dec
+2017-12-23	Mid		Sat	7	WE	Dec
+2017-12-22	Mid		Fri	6	WE	Dec
+2017-12-21	Mid		Thu	5	WE	Dec
+2017-12-20	Mid		Wed	4	WD	Dec
+2017-12-19	Mid		Tue	3	WD	Dec
+2017-12-18	Mid		Mon	2	WD	Dec
+2017-12-17	Mid		Sun	1	WD	Dec
+2017-12-16	Mid		Sat	7	WE	Dec
+2017-12-15	Mid		Fri	6	WE	Dec
+2017-12-14	Mid		Thu	5	WE	Dec
+2017-12-13	Mid		Wed	4	WD	Dec
+2017-12-12	Mid		Tue	3	WD	Dec
+2017-12-11	Mid		Mon	2	WD	Dec
+2017-12-10	Mid		Sun	1	WD	Dec
+2017-12-09	Mid		Sat	7	WE	Dec
+2017-12-08	Mid		Fri	6	WE	Dec
+2017-12-07	Mid		Thu	5	WE	Dec
+2017-12-06	Mid		Wed	4	WD	Dec
+2017-12-05	Mid		Tue	3	WD	Dec
+2017-12-04	Mid		Mon	2	WD	Dec
+2017-12-03	Mid		Sun	1	WD	Dec
+2017-12-02	Mid		Sat	7	WE	Dec
+2017-12-01	Mid		Fri	6	WE	Dec
+2017-11-30	High		Thu	5	WE	Nov
+2017-11-29	High	BIG 5	Wed	4	WD	Nov
+2017-11-28	High	BIG 5	Tue	3	WD	Nov
+2017-11-27	High	BIG 5	Mon	2	WD	Nov
+2017-11-26	High	BIG 5	Sun	1	WD	Nov
+2017-11-25	High		Sat	7	WE	Nov
+2017-11-24	High		Fri	6	WE	Nov
+2017-11-23	High		Thu	5	WE	Nov
+2017-11-22	High		Wed	4	WD	Nov
+2017-11-21	High		Tue	3	WD	Nov
+2017-11-20	High		Mon	2	WD	Nov
+2017-11-19	High		Sun	1	WD	Nov
+2017-11-18	High		Sat	7	WE	Nov
+2017-11-17	High		Fri	6	WE	Nov
+2017-11-16	High	AirShow	Thu	5	WE	Nov
+2017-11-15	High	AirShow	Wed	4	WD	Nov
+2017-11-14	High	AirShow	Tue	3	WD	Nov
+2017-11-13	High	AirShow	Mon	2	WD	Nov
+2017-11-12	High	AirShow	Sun	1	WD	Nov
+2017-11-11	High		Sat	7	WE	Nov
+2017-11-10	High		Fri	6	WE	Nov
+2017-11-09	High		Thu	5	WE	Nov
+2017-11-08	High		Wed	4	WD	Nov
+2017-11-07	High		Tue	3	WD	Nov
+2017-11-06	High		Mon	2	WD	Nov
+2017-11-05	High		Sun	1	WD	Nov
+2017-11-04	High		Sat	7	WE	Nov
+2017-11-03	High		Fri	6	WE	Nov
+2017-11-02	High		Thu	5	WE	Nov
+2017-11-01	High		Wed	4	WD	Nov
+2017-10-31	Low		Tue	3	WD	Oct
+2017-10-30	Low		Mon	2	WD	Oct
+2017-10-29	Low		Sun	1	WD	Oct
+2017-10-28	Low		Sat	7	WE	Oct
+2017-10-27	Low		Fri	6	WE	Oct
+2017-10-26	Low		Thu	5	WE	Oct
+2017-10-25	Low		Wed	4	WD	Oct
+2017-10-24	Low		Tue	3	WD	Oct
+2017-10-23	Low		Mon	2	WD	Oct
+2017-10-22	Low		Sun	1	WD	Oct
+2017-10-21	Low		Sat	7	WE	Oct
+2017-10-20	Low		Fri	6	WE	Oct
+2017-10-19	Low		Thu	5	WE	Oct
+2017-10-18	Low		Wed	4	WD	Oct
+2017-10-17	Low		Tue	3	WD	Oct
+2017-10-16	Low		Mon	2	WD	Oct
+2017-10-15	Low		Sun	1	WD	Oct
+2017-10-14	Low		Sat	7	WE	Oct
+2017-10-13	Low		Fri	6	WE	Oct
+2017-10-12	Low	GITEX	Thu	5	WE	Oct
+2017-10-11	Low	GITEX	Wed	4	WD	Oct
+2017-10-10	Low	GITEX	Tue	3	WD	Oct
+2017-10-09	Low	GITEX	Mon	2	WD	Oct
+2017-10-08	Low	GITEX	Sun	1	WD	Oct
+2017-10-07	Low		Sat	7	WE	Oct
+2017-10-06	Low		Fri	6	WE	Oct
+2017-10-05	Low		Thu	5	WE	Oct
+2017-10-04	Low		Wed	4	WD	Oct
+2017-10-03	Low		Tue	3	WD	Oct
+2017-10-02	Low		Mon	2	WD	Oct
+2017-10-01	Low		Sun	1	WD	Oct
+2017-09-30	Low		Sat	7	WE	Sep
+2017-09-29	Low		Fri	6	WE	Sep
+2017-09-28	Low		Thu	5	WE	Sep
+2017-09-27	Low		Wed	4	WD	Sep
+2017-09-26	Low		Tue	3	WD	Sep
+2017-09-25	Low		Mon	2	WD	Sep
+2017-09-24	Low		Sun	1	WD	Sep
+2017-09-23	Low		Sat	7	WE	Sep
+2017-09-22	Low		Fri	6	WE	Sep
+2017-09-21	Low		Thu	5	WE	Sep
+2017-09-20	Low		Wed	4	WD	Sep
+2017-09-19	Low		Tue	3	WD	Sep
+2017-09-18	Low		Mon	2	WD	Sep
+2017-09-17	Low		Sun	1	WD	Sep
+2017-09-16	Low		Sat	7	WE	Sep
+2017-09-15	Low		Fri	6	WE	Sep
+2017-09-14	Low		Thu	5	WE	Sep
+2017-09-13	Low		Wed	4	WD	Sep
+2017-09-12	Low		Tue	3	WD	Sep
+2017-09-11	Low		Mon	2	WD	Sep
+2017-09-10	Low		Sun	1	WD	Sep
+2017-09-09	Low		Sat	7	WE	Sep
+2017-09-08	Low		Fri	6	WE	Sep
+2017-09-07	Low		Thu	5	WE	Sep
+2017-09-06	Low		Wed	4	WD	Sep
+2017-09-05	Low		Tue	3	WD	Sep
+2017-09-04	Low		Mon	2	WD	Sep
+2017-09-03	Low	 EID AL ADHA 	Sun	1	WD	Sep
+2017-09-02	Low	 EID AL ADHA 	Sat	7	WE	Sep
+2017-09-01	Low	 EID AL ADHA 	Fri	6	WE	Sep
+2017-08-31	Low	 EID AL ADHA 	Thu	5	WE	Aug
+2017-08-30	Low		Wed	4	WD	Aug
+2017-08-29	Low		Tue	3	WD	Aug
+2017-08-28	Low		Mon	2	WD	Aug
+2017-08-27	Low		Sun	1	WD	Aug
+2017-08-26	Low		Sat	7	WE	Aug
+2017-08-25	Low		Fri	6	WE	Aug
+2017-08-24	Low		Thu	5	WE	Aug
+2017-08-23	Low		Wed	4	WD	Aug
+2017-08-22	Low		Tue	3	WD	Aug
+2017-08-21	Low		Mon	2	WD	Aug
+2017-08-20	Low		Sun	1	WD	Aug
+2017-08-19	Low		Sat	7	WE	Aug
+2017-08-18	Low		Fri	6	WE	Aug
+2017-08-17	Low		Thu	5	WE	Aug
+2017-08-16	Low		Wed	4	WD	Aug
+2017-08-15	Low		Tue	3	WD	Aug
+2017-08-14	Low		Mon	2	WD	Aug
+2017-08-13	Low		Sun	1	WD	Aug
+2017-08-12	Low		Sat	7	WE	Aug
+2017-08-11	Low		Fri	6	WE	Aug
+2017-08-10	Low		Thu	5	WE	Aug
+2017-08-09	Low		Wed	4	WD	Aug
+2017-08-08	Low		Tue	3	WD	Aug
+2017-08-07	Low		Mon	2	WD	Aug
+2017-08-06	Low		Sun	1	WD	Aug
+2017-08-05	Low		Sat	7	WE	Aug
+2017-08-04	Low		Fri	6	WE	Aug
+2017-08-03	Low		Thu	5	WE	Aug
+2017-08-02	Low		Wed	4	WD	Aug
+2017-08-01	Low		Tue	3	WD	Aug
+2017-07-31	Low		Mon	2	WD	Jul
+2017-07-30	Low		Sun	1	WD	Jul
+2017-07-29	Low		Sat	7	WE	Jul
+2017-07-28	Low		Fri	6	WE	Jul
+2017-07-27	Low		Thu	5	WE	Jul
+2017-07-26	Low		Wed	4	WD	Jul
+2017-07-25	Low		Tue	3	WD	Jul
+2017-07-24	Low		Mon	2	WD	Jul
+2017-07-23	Low		Sun	1	WD	Jul
+2017-07-22	Low		Sat	7	WE	Jul
+2017-07-21	Low		Fri	6	WE	Jul
+2017-07-20	Low		Thu	5	WE	Jul
+2017-07-19	Low		Wed	4	WD	Jul
+2017-07-18	Low		Tue	3	WD	Jul
+2017-07-17	Low		Mon	2	WD	Jul
+2017-07-16	Low		Sun	1	WD	Jul
+2017-07-15	Low		Sat	7	WE	Jul
+2017-07-14	Low		Fri	6	WE	Jul
+2017-07-13	Low		Thu	5	WE	Jul
+2017-07-12	Low		Wed	4	WD	Jul
+2017-07-11	Low		Tue	3	WD	Jul
+2017-07-10	Low		Mon	2	WD	Jul
+2017-07-09	Low		Sun	1	WD	Jul
+2017-07-08	Low		Sat	7	WE	Jul
+2017-07-07	Low		Fri	6	WE	Jul
+2017-07-06	Low		Thu	5	WE	Jul
+2017-07-05	Low		Wed	4	WD	Jul
+2017-07-04	Low		Tue	3	WD	Jul
+2017-07-03	Low		Mon	2	WD	Jul
+2017-07-02	Low	"EID-AL FITR"	Sun	1	WD	Jul
+2017-07-01	Low	"EID-AL FITR"	Sat	7	WE	Jul
+2017-06-30	Mid	"EID-AL FITR"	Fri	6	WE	Jun
+2017-06-29	Mid	"EID-AL FITR"	Thu	5	WE	Jun
+2017-06-28	Mid	"EID-AL FITR"	Wed	4	WD	Jun
+2017-06-27	Mid	"EID-AL FITR"	Tue	3	WD	Jun
+2017-06-26	Mid	"EID-AL FITR"	Mon	2	WD	Jun
+2017-06-25	Ramadan		Sun	1	WD	Jun
+2017-06-24	Ramadan		Sat	7	WE	Jun
+2017-06-23	Ramadan		Fri	6	WE	Jun
+2017-06-22	Ramadan		Thu	5	WE	Jun
+2017-06-21	Ramadan		Wed	4	WD	Jun
+2017-06-20	Ramadan		Tue	3	WD	Jun
+2017-06-19	Ramadan		Mon	2	WD	Jun
+2017-06-18	Ramadan		Sun	1	WD	Jun
+2017-06-17	Ramadan		Sat	7	WE	Jun
+2017-06-16	Ramadan		Fri	6	WE	Jun
+2017-06-15	Ramadan		Thu	5	WE	Jun
+2017-06-14	Ramadan		Wed	4	WD	Jun
+2017-06-13	Ramadan		Tue	3	WD	Jun
+2017-06-12	Ramadan		Mon	2	WD	Jun
+2017-06-11	Ramadan		Sun	1	WD	Jun
+2017-06-10	Ramadan		Sat	7	WE	Jun
+2017-06-09	Ramadan		Fri	6	WE	Jun
+2017-06-08	Ramadan		Thu	5	WE	Jun
+2017-06-07	Ramadan		Wed	4	WD	Jun
+2017-06-06	Ramadan		Tue	3	WD	Jun
+2017-06-05	Ramadan		Mon	2	WD	Jun
+2017-06-04	Ramadan		Sun	1	WD	Jun
+2017-06-03	Ramadan		Sat	7	WE	Jun
+2017-06-02	Ramadan		Fri	6	WE	Jun
+2017-06-01	Ramadan		Thu	5	WE	Jun
+2017-05-31	Ramadan		Wed	4	WD	May
+2017-05-30	Ramadan		Tue	3	WD	May
+2017-05-29	Ramadan		Mon	2	WD	May
+2017-05-28	Ramadan		Sun	1	WD	May
+2017-05-27	Ramadan		Sat	7	WE	May
+2017-05-26	Ramadan		Fri	6	WE	May
+2017-05-25	Low		Thu	5	WE	May
+2017-05-24	Low		Wed	4	WD	May
+2017-05-23	Low		Tue	3	WD	May
+2017-05-22	Low		Mon	2	WD	May
+2017-05-21	Low		Sun	1	WD	May
+2017-05-20	Low		Sat	7	WE	May
+2017-05-19	Low		Fri	6	WE	May
+2017-05-18	Low		Thu	5	WE	May
+2017-05-17	Low		Wed	4	WD	May
+2017-05-16	Low		Tue	3	WD	May
+2017-05-15	Low		Mon	2	WD	May
+2017-05-14	Low		Sun	1	WD	May
+2017-05-13	Low		Sat	7	WE	May
+2017-05-12	Low		Fri	6	WE	May
+2017-05-11	Low		Thu	5	WE	May
+2017-05-10	Low		Wed	4	WD	May
+2017-05-09	Low		Tue	3	WD	May
+2017-05-08	Low		Mon	2	WD	May
+2017-05-07	Low		Sun	1	WD	May
+2017-05-06	Low		Sat	7	WE	May
+2017-05-05	Low		Fri	6	WE	May
+2017-05-04	Low		Thu	5	WE	May
+2017-05-03	Low		Wed	4	WD	May
+2017-05-02	Low		Tue	3	WD	May
+2017-05-01	Low		Mon	2	WD	May
+2017-04-30	High		Sun	1	WD	Apr
+2017-04-29	High		Sat	7	WE	Apr
+2017-04-28	High		Fri	6	WE	Apr
+2017-04-27	High		Thu	5	WE	Apr
+2017-04-26	High		Wed	4	WD	Apr
+2017-04-25	High		Tue	3	WD	Apr
+2017-04-24	High		Mon	2	WD	Apr
+2017-04-23	High		Sun	1	WD	Apr
+2017-04-22	High		Sat	7	WE	Apr
+2017-04-21	High		Fri	6	WE	Apr
+2017-04-20	High		Thu	5	WE	Apr
+2017-04-19	High		Wed	4	WD	Apr
+2017-04-18	High		Tue	3	WD	Apr
+2017-04-17	High		Mon	2	WD	Apr
+2017-04-16	High		Sun	1	WD	Apr
+2017-04-15	High		Sat	7	WE	Apr
+2017-04-14	High		Fri	6	WE	Apr
+2017-04-13	High		Thu	5	WE	Apr
+2017-04-12	High		Wed	4	WD	Apr
+2017-04-11	High		Tue	3	WD	Apr
+2017-04-10	High		Mon	2	WD	Apr
+2017-04-09	High		Sun	1	WD	Apr
+2017-04-08	High		Sat	7	WE	Apr
+2017-04-07	High		Fri	6	WE	Apr
+2017-04-06	High		Thu	5	WE	Apr
+2017-04-05	High		Wed	4	WD	Apr
+2017-04-04	High		Tue	3	WD	Apr
+2017-04-03	High		Mon	2	WD	Apr
+2017-04-02	High		Sun	1	WD	Apr
+2017-04-01	High		Sat	7	WE	Apr
+2017-03-31	High		Fri	6	WE	Mar
+2017-03-30	High		Thu	5	WE	Mar
+2017-03-29	High		Wed	4	WD	Mar
+2017-03-28	High		Tue	3	WD	Mar
+2017-03-27	High		Mon	2	WD	Mar
+2017-03-26	High		Sun	1	WD	Mar
+2017-03-25	High		Sat	7	WE	Mar
+2017-03-24	High		Fri	6	WE	Mar
+2017-03-23	High	Arab Lab	Thu	5	WE	Mar
+2017-03-22	High	Arab Lab	Wed	4	WD	Mar
+2017-03-21	High	Arab Lab	Tue	3	WD	Mar
+2017-03-20	High	Arab Lab	Mon	2	WD	Mar
+2017-03-19	High		Sun	1	WD	Mar
+2017-03-18	High		Sat	7	WE	Mar
+2017-03-17	High		Fri	6	WE	Mar
+2017-03-16	High		Thu	5	WE	Mar
+2017-03-15	High		Wed	4	WD	Mar
+2017-03-14	High		Tue	3	WD	Mar
+2017-03-13	High		Mon	2	WD	Mar
+2017-03-12	High		Sun	1	WD	Mar
+2017-03-11	High		Sat	7	WE	Mar
+2017-03-10	High		Fri	6	WE	Mar
+2017-03-09	High		Thu	5	WE	Mar
+2017-03-08	High		Wed	4	WD	Mar
+2017-03-07	High		Tue	3	WD	Mar
+2017-03-06	High		Mon	2	WD	Mar
+2017-03-05	High		Sun	1	WD	Mar
+2017-03-04	High		Sat	7	WE	Mar
+2017-03-03	High		Fri	6	WE	Mar
+2017-03-02	High	Gulfood	Thu	5	WE	Mar
+2017-03-01	High	Gulfood	Wed	4	WD	Mar
+2017-02-28	High	Gulfood	Tue	3	WD	Feb
+2017-02-27	High	Gulfood	Mon	2	WD	Feb
+2017-02-26	High	Gulfood	Sun	1	WD	Feb
+2017-02-25	High		Sat	7	WE	Feb
+2017-02-24	High		Fri	6	WE	Feb
+2017-02-23	High		Thu	5	WE	Feb
+2017-02-22	High		Wed	4	WD	Feb
+2017-02-21	High		Tue	3	WD	Feb
+2017-02-20	High		Mon	2	WD	Feb
+2017-02-19	High		Sun	1	WD	Feb
+2017-02-18	High		Sat	7	WE	Feb
+2017-02-17	High		Fri	6	WE	Feb
+2017-02-16	High		Thu	5	WE	Feb
+2017-02-15	High		Wed	4	WD	Feb
+2017-02-14	High		Tue	3	WD	Feb
+2017-02-13	High		Mon	2	WD	Feb
+2017-02-12	High		Sun	1	WD	Feb
+2017-02-11	High		Sat	7	WE	Feb
+2017-02-10	High		Fri	6	WE	Feb
+2017-02-09	High		Thu	5	WE	Feb
+2017-02-08	High		Wed	4	WD	Feb
+2017-02-07	High		Tue	3	WD	Feb
+2017-02-06	High		Mon	2	WD	Feb
+2017-02-05	High		Sun	1	WD	Feb
+2017-02-04	High		Sat	7	WE	Feb
+2017-02-03	High		Fri	6	WE	Feb
+2017-02-02	High	Arab Health	Thu	5	WE	Feb
+2017-02-01	High	Arab Health	Wed	4	WD	Feb
+2017-01-31	High	Arab Health	Tue	3	WD	Jan
+2017-01-30	High	Arab Health	Mon	2	WD	Jan
+2017-01-29	High	Arab Health	Sun	1	WD	Jan
+2017-01-28	High	Arab Health	Sat	7	WE	Jan
+2017-01-27	High	Arab Health	Fri	6	WE	Jan
+2017-01-26	High		Thu	5	WE	Jan
+2017-01-25	High		Wed	4	WD	Jan
+2017-01-24	High		Tue	3	WD	Jan
+2017-01-23	High		Mon	2	WD	Jan
+2017-01-22	High		Sun	1	WD	Jan
+2017-01-21	High		Sat	7	WE	Jan
+2017-01-20	High		Fri	6	WE	Jan
+2017-01-19	High		Thu	5	WE	Jan
+2017-01-18	High		Wed	4	WD	Jan
+2017-01-17	High		Tue	3	WD	Jan
+2017-01-16	High		Mon	2	WD	Jan
+2017-01-15	High		Sun	1	WD	Jan
+2017-01-14	High		Sat	7	WE	Jan
+2017-01-13	High		Fri	6	WE	Jan
+2017-01-12	High		Thu	5	WE	Jan
+2017-01-11	High		Wed	4	WD	Jan
+2017-01-10	High	Arabplast	Tue	3	WD	Jan
+2017-01-09	High	Arabplast	Mon	2	WD	Jan
+2017-01-08	High	Arabplast	Sun	1	WD	Jan
+2017-01-07	High		Sat	7	WE	Jan
+2017-01-06	High		Fri	6	WE	Jan
+2017-01-05	High		Thu	5	WE	Jan
+2017-01-04	High		Wed	4	WD	Jan
+2017-01-03	High		Tue	3	WD	Jan
+2017-01-02	High	NY	Mon	2	WD	Jan
+2017-01-01	High	NY	Sun	1	WD	Jan
