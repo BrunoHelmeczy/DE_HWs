@@ -1,0 +1,19 @@
+RMLs	Bucket_Name	Bucket_ID	Sub_segment_A	Sub_segment_B	Segm_Detailed
+RMA	Transients	ABEF	Transient BAR	Transient Direct	Unrestricted
+RMB	Transients	ABEF	Transient BAR	Transient Direct	Advance Saver
+RMC	Transients	CDGH	Transient Promotions	Transient Direct	Super Advance Saver
+RMD	Transients	CDGH	Transient Promotions	Transient Direct	Promotions
+RME	Transients	ABEF	Transient BAR	Transient Distribution	Unrestricted
+RMF	Transients	ABEF	Transient BAR	Transient Distribution	Advance Saver
+RMG	Transients	CDGH	Transient Promotions	Transient Distribution	Super Advance Saver
+RMH	Transients	CDGH	Transient Promotions	Transient Distribution	Promotions
+RMI	Corporate	IJ	Corporate	Corporate	Strategic
+RMJ	Corporate	IJ	Corporate	Corporate	High
+RMK	Contracted Leisure	KLZ	Contracted Leisure	"FIT"	Medium
+RML	Contracted Leisure	KLZ	Contracted Leisure	"FIT"	Low
+RMQ	Groups	QRSTY	Groups	Business Groups	Small Meetings
+RMR	Groups	QRSTY	Groups	Business Groups	Other Meetings
+RMS	Groups	QRSTY	Groups	Business Groups	Business Groups
+RMT	Groups	QRSTY	Groups	Leisure Groups	Leisure Groups
+RMY	Groups	QRSTY	Groups	Other	Airlines
+RMZ	Contracted Leisure	KLZ	Contracted Leisure	Other	Complimentary + Day Use
