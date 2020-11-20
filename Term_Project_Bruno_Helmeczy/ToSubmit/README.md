@@ -16,7 +16,7 @@ Additional variables (not analysed here) are the PricePoint the hotel chose in t
 
 
 ### 2) Dataset Denormalization & Consolidated Data Tables
-The Denormalized Dataset is joined in a view of the conveniently same name. Also, 4 Consolidated Data Tables were created as views, to simplify standard deviation calculations, where used. While this was also possible via WITH clauses, this would have been needed in every View for Exploratory data analysis.
+The Denormalized Dataset is joined in a view of the conveniently same name. Also, 4 Consolidated Data Tables (CDTs) were created as views, to simplify standard deviation calculations, where used. While this was also possible via WITH clauses, this would have been needed in every View for Exploratory data analysis. 2 CDTs summarize On-The_Book figures per stay date by reservation date, 1-1 by segments & the whole hotel. 2 more CDTs focus on rooms sold by booking windows, again either by segment or the total hotel. 
 
 
 ### 3) Exploratory Data Analysis - By Weekdays / By Seasons / By Booking Windows
@@ -30,7 +30,6 @@ Typical Key Performance Indicators (KPIs) to measure Hotels' management success 
     - (Sum of Revenue Earned) / ((Count of Distinct Stay Nights) * (Nr of rooms in the hotel i.e. Availability)) = ADR * Occupancy % 
  
  #### 3.1) Analytical Questions
-- Questions to answer with EDA / Data Marts / Stored Procedures
  
  The KPIs above are of interest from perspective of multiple dimensions, or their combinations:
  - **By Customer Segments:** Any business's 1st question is **How do we make money & Selling to who ?**
