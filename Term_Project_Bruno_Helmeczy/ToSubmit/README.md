@@ -5,6 +5,26 @@ The dataset is 2 years’ room sales data from Novotel Al Barsha, a 465 room, 4-
 
 The RM functions’ purpose is to maximize Gross Operating Profit (GOP) using disciplined, data-driven supply- & demand management tactics, manifested as optimizing room prices & room availability, subject to seasons, markets, room types, customer segments, booking channels & the number of available rooms. Thus, structured & reliable information is indispensable for attaining RM’s objectives.  Indeed, the RM department has increasingly been responsible for managing & providing all necessary information in a condensed format to many departments & stakeholders, most crucially the commercial team (Sales & Marketing), leadership (General Managers, Ownership representatives), & the front office team (Reception). This Project presents a MySQL-based solution to informing some of the stakeholders with the data available, after a diagnostic analysis extracting a series of queries stored as views. 
 
+### 1) Data Source - Novotel Al Barsha, Dubai Daily Sales January 2017 - October 2018
+<img width="400" alt="NAB_Datamodel" src="https://user-images.githubusercontent.com/71438198/99824141-91026580-2b55-11eb-850c-ea70cd79cfe4.png">
+
+The dataset comprises 4 tables: 3 dimension tables & 1 fact table. The 3 dimensions analyzed are that of Stay Dates (dCalendar_DOS i.e. Date of Stay), Customer Segments (dSegmentation) & Relative Booking behaviour, measured in terms of Days Before Arrival (i.e. DBA). Major - demand influencing - Events are noted for stay dates (as these increase the value of certain room nights), besides the weekdays & season any stay date falls into. The segmentation table specifies a segment hierarchy, from which the highest level is used for analysis. the dDBA table bins specific instances of days before arrival into booking windows.
+
+
+The fact table comprises booking information on stay dates between January 1st 2017 & October 22nd 2018. Each stay date is observed from perspective of many reservation dates, at most 91 days in advance many times & once after the stay date has concluded to note the final result. 1 row observation accounts for 1 stay date at 1 reservation date, for 1 customer segment (the smallest unit of which are RMLs), within a booking interval (the time interval between 2 consecutive reports from which the dataset was derived). Key variables are OTB_Rooms & OTB_Rev (the Number of rooms & revenue sold upto this reservation date), Pickup_Rooms & Pickup_Rev (the Number of rooms & revenue sold in the booking interval observed). 
+
+Additional variables (not analysed here) are the PricePoint the Hotel chose in the observed booking interval, how that price point compares to competitors' average price & the Rate the pricepoint maps to for a specific sub-segment. As only transients are assumed to be price-sensitive segments theoretically, omitting these variables in further analysis does not prevent exploring what happened to the hotel in the observed stay period.
+
+
+
+
+
+- Loading Data - Purpose per table
+
+
+
+### 2) Dataset Denormalization & Consolidated Data Tables
+- brief variable descriptions
 
 
 ### 3) Exploratory Data Analysis - By Weekdays / By Seasons / By Booking Windows
@@ -62,10 +82,7 @@ The 3rd Stored Procedure provides 1 such use case for the 2nd, categorizing stay
 
 
 
-### 1) Data Source - Novotel Al Barsha, Dubai Daily Sales January 2017 - October 2018
-- Loading Data - Purpose per table
-### 2) Dataset Denormalization & Consolidated Data Tables
-- brief variable descriptions
+
 
 ### 4) Data Marts
 - Monthly KPI Progression Month_2_Month
