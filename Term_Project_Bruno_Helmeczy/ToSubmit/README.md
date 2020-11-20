@@ -66,6 +66,19 @@ From this query by weekdays, 2 things can be observed: 1st, the hotel is rather 
  
  <img width="288" alt="EDA_2_KPIs_by_Seasons" src="https://user-images.githubusercontent.com/71438198/99818189-3285b900-2b4e-11eb-8034-6932b9010b83.png"> <img width="265" alt="EDA_7_KPIs_Changes_YOY_by_Season" src="https://user-images.githubusercontent.com/71438198/99818197-33b6e600-2b4e-11eb-976e-90f50e142e94.png">
  
+ 1st, note from the query left-hand side, that Seasons were designated based on RevPAR, i.e. on how much money can be made per available room in any given period. Also note the Nr of days in each season (considering the 22 months observed). Annual seasonality in Dubai can thus be characterized with longer High & Low Seasons, with a ca. Month-long transition period, noted as Mid season. Low season are those of the Arab summer May - September (40 degrees celsius in shade). What complicates this (also the reason for not denoting Months' seasons) is the lunar month of Ramadan (shifting 2 weeks / year), which during this time was in June & May, resulting in RevPARs ca. 50% lower vs even Low Season. 2nd, heaviest RevPAR losses were during the transition period in Mid season & most revenue was lost during High season, despite Occupancy increasing with 3.2%.
+ 
+ **During which season did Corporates' & Transients' lost the most Revenue ?**
+ 
+ <img width="334" alt="EDA_8_KPIs_Changes_YOY_by_Segments_n_Seasons" src="https://user-images.githubusercontent.com/71438198/99818198-33b6e600-2b4e-11eb-8892-c22622d463b7.png">
+ 
+ Having noted the most revenue was lost on Corporates & Transients, focus is dedicated to these segments. From the table above, note that Transient RevPAR losses during low season & Ramadan are relatively small, however during high season the decrease in average price netted 1.3M AED Revenue loss annualized. 
+ 
+ **So What might have happened in this hotel year over year? **
+
+ What should be noted, is the 2 segments' behaviour: Corporate contracts are negotiated a year in advance, while with transients, managers cannot take action so far in advance. Noting Corporate occupancy decreased 4.3% - 7.4% in 3/4 seasons, one could wonder how have these negotiations (termed RFP i.e. Request for Proposal season) went. In this light, year-over-year performance by segments could be seen as Transients & Groups segments trying to compensate for the lost performance in the Corporate segment. 
+ 
+ 
 **By Booking Windows** 
  
  
