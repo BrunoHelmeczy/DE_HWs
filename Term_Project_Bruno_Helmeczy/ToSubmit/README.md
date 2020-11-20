@@ -33,7 +33,7 @@ The RM functions’ purpose is to maximize Gross Operating Profit (GOP) using di
  
  
 
-The 1st Data Mart answers **How stay months' KPIs (Occupancy % & RevPAR) Progress Month-to-Month ?** This informs questions like **How did we get here?** by showing not only final results for a month (e.g. January 2018) after the month has concluded (Feb 1st), but what was the months' status at the begining of the month in question (January 1st), & at the beginning of earlier months (e.g. December 1st & November 1st).
+The 1st Data Mart answers **How stay months' KPIs (Occupancy % & RevPAR) Progress Month-to-Month ?** This informs questions like **How did we get here?** by showing not only final results for a month (e.g. January 2018) after the month has concluded (Feb 1st), but what was the months' status at the begining of the month in question (January 1st), & at the beginning of earlier months (e.g. December 1st & November 1st). Outputs are faster if stored as a procedure & limiting 
 
 The 1st Stored Procedure informs the Front Office Team (i.e. Reception) on **How many staff members should be scheduled on each day ?** by forecasting the number of rooms sold per day for the next 2 weeks' stay dates (with current date as an input parameter). Reception teams' workload are proportionate to how many guests are in-house, therefore the forecast informs the number of receptionists to schedule together on a shift. For simplicity, it is assumed no less than 2 employees should by scheduled & that 1 employee can handle ca. 93 rooms (i.e. 20% of available rooms - not all rooms check-in/out & not all guests need employee assistance).
 
