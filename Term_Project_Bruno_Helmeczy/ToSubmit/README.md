@@ -22,10 +22,11 @@ The RM functions’ purpose is to maximize Gross Operating Profit (GOP) using di
 
 
 
-**By Days of the Week & By Season**
+**By Days of the Week & By Season**  
 
- 
- <img width="401" alt="EDA_1_KPIs_by_Weekdays" src="https://user-images.githubusercontent.com/71438198/99775990-7c4fae80-2b10-11eb-9d81-7b9dfe7cd315.png">
+
+
+<img width="301" alt="EDA_1_KPIs_by_Weekdays" src="https://user-images.githubusercontent.com/71438198/99775990-7c4fae80-2b10-11eb-9d81-7b9dfe7cd315.png">
  View Title: EDA_1: KPIs by Weekdays
  
 **By Booking Windows** 
