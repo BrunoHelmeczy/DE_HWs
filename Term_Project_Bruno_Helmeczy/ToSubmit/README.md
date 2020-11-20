@@ -32,12 +32,28 @@ Typical Key Performance Indicators (KPIs) to measure Hotels' management success 
  #### 3.1) Analytical Questions
  
  The KPIs above are of interest from perspective of multiple dimensions, or their combinations:
- - **By Customer Segments:** Any business's 1st question is **How do we make money & Selling to who ?**
+ - **By Customer Segments:** Any business's 1st question is **How do we make money & Selling to whom ?** More precisely, in what proportion? The hotel serves 4 segments: 
+    - Transients, privately booking their holidays through e.g. Expedia & Booking.com.
+    - Corporate guests, whose corporations negotiate room prices with the hotel ca. a year in advance, in light of how many rooms they expect to use.
+    - Groups, arriving for certain conferences in the area, requiring large Nr of rooms for few days.
+    - Contracted Leisure guests booking through wholesalers.
  - **By Stay Dates:** Days of the Week, Season, month, year the stay date of interest falls into. As the product hotels sell, similar stay dates are aggregated together for further analysis, in hopes of extracting generalizable insights onto similar situations in the future.  Hotels show 2 types of seasonality consistently: Weekly & Annual
  - **By Relative Booking Date** (i.e. Days Before Arrival): Nr of days / weeks ahead, or in a specific Booking Window/Period. As the product is perishable (past stay nights cannot be sold) & the objective is to maximize total revenues for a stay date, season, or year, a key dimension is to observe guests' buying behaviour in terms of how far in advance do they book relative to their arrival. Research has shown, that influencing guests' purchase timing behaviour is possible only to a minimal extent, due to the abundance of alternatives available at any given moment (e.g. the number of hotels in Dubai). Thus, Sales performance can be seperately evaluated by booking windows, as different customers are booking in different windows. Though lagging KPIs might be compsensated closer to arrival, potential customers choosing to book elsewhere cannot be recovered later, as they already chosen a competitor.
 
 
-**By Customer Segments**
+##### By Customer Segments
+**How many Rooms Sold & RevPAR come from which segment ?**
+**Which are the most profitable segments ?**
+<img width="249" alt="EDA_2_KPIs_by_Segments" src="https://user-images.githubusercontent.com/71438198/99818190-3285b900-2b4e-11eb-85a7-7c1d7aef46c9.png">
+
+As visible, Transients account for both highest number of average rooms sold & ADR, resulting in the most Revenue contributed to the hotel. One can also see, Transients are the highest paying (i.e. most profitable) customers, with Corporate guests average being slightly below average. Their booking behaviour however tends to shift closer to arrival date, enabled by tech advancements. Based on this querey, 1 could assume this hotel is Leisure focused.
+
+**How did these segments perform Year-over-Year ?**
+<img width="318" alt="EDA_4_KPIs_Changes_YOY_by_Segment" src="https://user-images.githubusercontent.com/71438198/99818192-331e4f80-2b4e-11eb-999e-2432a4498d1d.png">
+
+
+
+
 
 
 
