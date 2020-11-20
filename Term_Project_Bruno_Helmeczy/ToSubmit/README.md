@@ -1,7 +1,14 @@
 # Data Engineering 1 SQL for Analysts Term Project - Bruno Helmeczy
 
 ### Preface
-- Intro
+The dataset is 2 years’ room sales data from Novotel Al Barsha, a 465 room, 4-star hotel in Dubai, operated by AccorHotels under a Management Agreement, a distinguishing factor, as the Revenue Management (RM) process is executed in-house, not from central locations. The RM Process is a perpetual cycle of analysing data obtained from a variety of sources in light of a pre-defined goal (usually maximizing operating profits), calculating forecasts on Strategic-, Tactical-, & Operational levels, & optimizing decision-making with regards to pricing & room availability controls.
+
+The RM functions’ purpose is to maximize Gross Operating Profit (GOP) using disciplined, data-driven supply- & demand management tactics, manifested as optimizing room prices & room availability, subject to seasons, markets, room types, customer segments, booking channels & the number of available rooms. Reliable & Structured information is indispensable for attaining RM’s objectives. 
+
+Indeed, the RM department has increasingly been responsible for managing & providing all necessary information in a condensed format to many departments & stakeholders, most crucially the commercial team (Sales & Marketing), leadership (General Managers, Ownership representatives), & the front office team (Reception). Extracting structured information ready for analyses are thus vital to successful RM operations. This report presents a MySQL-based solution to informing these stakeholders with the data available.
+
+
+
 ### 1) Data Source - Novotel Al Barsha, Dubai Daily Sales January 2017 - October 2018
 - Loading Data - Purpose per table
 ### 2) Dataset Denormalization & Consolidated Data Tables
