@@ -41,8 +41,10 @@ Typical Key Performance Indicators (KPIs) to measure Hotels' management success 
  - **By Relative Booking Date** (i.e. Days Before Arrival): Nr of days / weeks ahead, or in a specific Booking Window/Period. As the product is perishable (past stay nights cannot be sold) & the objective is to maximize total revenues for a stay date, season, or year, a key dimension is to observe guests' buying behaviour in terms of how far in advance do they book relative to their arrival. Research has shown, that influencing guests' purchase timing behaviour is possible only to a minimal extent, due to the abundance of alternatives available at any given moment (e.g. the number of hotels in Dubai). Thus, Sales performance can be seperately evaluated by booking windows, as different customers are booking in different windows. Though lagging KPIs might be compsensated closer to arrival, potential customers choosing to book elsewhere cannot be recovered later, as they already chosen a competitor.
 
 
-##### By Customer Segments
+#### 3.2) By Customer Segments
+
 **How many Rooms Sold & RevPAR come from which segment ?**
+
 **Which are the most profitable segments ?**
 
 <img width="300" alt="EDA_2_KPIs_by_Segments" src="https://user-images.githubusercontent.com/71438198/99818190-3285b900-2b4e-11eb-85a7-7c1d7aef46c9.png">
@@ -55,7 +57,7 @@ As visible, Transients account for both highest number of average rooms sold & A
 
 This view shows a grimm picture. Corporate guest accounted for 5% less occupancy, though this loss was compensated by Transients & Groups. Average Prices however, decreased by ca. 13% for Corporates & by ca. 20% for other segments. This resulted in a ca. 7.5 Million AED Annualized Revenue loss YOY (ca. 1.9M USD - November & December 2018 data is not available). 1 can see Corporates & Transients are disproportionately responsible for these losses. As significant changes are visible year-over-year, such comparisons are prioratized.
 
-##### By Days of the Week & By Season
+#### 3.3) By Days of the Week & By Season
 
 **Where did these year-over-year losses come from ? Which Season / Weekday ?**
 
@@ -65,7 +67,7 @@ From this query by weekdays, 2 things can be observed: 1st, the hotel is rather 
 
 **How can the Dubai Markets' annual seasonality be characterized ?**
  
- <img width="288" alt="EDA_2_KPIs_by_Seasons" src="https://user-images.githubusercontent.com/71438198/99818189-3285b900-2b4e-11eb-8034-6932b9010b83.png"> <img width="265" alt="EDA_7_KPIs_Changes_YOY_by_Season" src="https://user-images.githubusercontent.com/71438198/99818197-33b6e600-2b4e-11eb-976e-90f50e142e94.png">
+ <img width="288" alt="EDA_2_KPIs_by_Seasons" src="https://user-images.githubusercontent.com/71438198/99818189-3285b900-2b4e-11eb-8034-6932b9010b83.png"> <img width="288" alt="EDA_7_KPIs_Changes_YOY_by_Season" src="https://user-images.githubusercontent.com/71438198/99818197-33b6e600-2b4e-11eb-976e-90f50e142e94.png">
  
  1st, note from the query left-hand side, that Seasons were designated based on RevPAR, i.e. on how much money can be made per available room in any given period. Also note the Nr of days in each season (considering the 22 months observed). Annual seasonality in Dubai can thus be characterized with longer High & Low Seasons, with a ca. Month-long transition period, noted as Mid season. Low season are those of the Arab summer May - September (40 degrees celsius in shade). What complicates this (also the reason for not denoting Months' seasons) is the lunar month of Ramadan (shifting 2 weeks / year), which during this time was in June & May, resulting in RevPARs ca. 50% lower vs even Low Season. 2nd, heaviest RevPAR losses were during the transition period in Mid season & most revenue was lost during High season, despite Occupancy increasing with 3.2%.
  
@@ -75,32 +77,44 @@ From this query by weekdays, 2 things can be observed: 1st, the hotel is rather 
  
  Having noted the most revenue was lost on Corporates & Transients, focus is dedicated to these segments. From the table above, note that Transient RevPAR losses during low season & Ramadan are relatively small, however during high season the decrease in average price netted 1.3M AED Revenue loss annualized. 
  
- **So What might have happened in this hotel year over year? **
+ **So What might have happened in this hotel year over year?**
 
  What should be noted, is the 2 segments' behaviour: Corporate contracts are negotiated a year in advance, while with transients, managers cannot take action so far in advance. Noting Corporate occupancy decreased 4.3% - 7.4% in 3/4 seasons, one could wonder how have these negotiations (termed RFP i.e. Request for Proposal season) went. In this light, year-over-year performance by segments could be seen as Transients & Groups segments trying to compensate for the lost performance in the Corporate segment. 
  
  
-**By Booking Windows** 
+#### 3.4) By Booking Windows 
 
 **In which booking windows does the hotel make the most money ?**
 
-<img width="237" alt="EDA_11_KPIs_by_Booking_Windows" src="https://user-images.githubusercontent.com/71438198/99818203-344f7c80-2b4e-11eb-95d1-d06e63824f66.png">
+<img width="350" alt="EDA_11_KPIs_by_Booking_Windows" src="https://user-images.githubusercontent.com/71438198/99818203-344f7c80-2b4e-11eb-95d1-d06e63824f66.png">
 
 Observing the query result above, note that of the ca. 64 Million AED Revenue earned in the 22 Month period, 33 Million AED, more than 50% of all Revenues are earned in the last 2 weeks before arrival.
 
 **How did Revenue per Booking Window Change Year over Year for Corporate & Transient guests ?**
 
-<img width="258" alt="EDA_13_KPIs_Changes_YOY_by_Segment_BkWd" src="https://user-images.githubusercontent.com/71438198/99818205-344f7c80-2b4e-11eb-9abf-7a0818fd8330.png">
+<img width="350" alt="EDA_13_KPIs_Changes_YOY_by_Segment_BkWd" src="https://user-images.githubusercontent.com/71438198/99818205-344f7c80-2b4e-11eb-9abf-7a0818fd8330.png">
 
 
 
 
 
- 
- 
- 
+- Monthly KPI Progression Month_2_Month
+### 5) Stored Procedures
+- Daily Forecast 2 weeks ahead
+- Daily Forecast 91 days ahead - Choose Segment | Total Hotel
+- Daily Forecast 91 days ahead & categorize Forecast versus Historical Average Room Sold by Season & Weekday 
 
-The 1st Data Mart answers **How stay months' KPIs (Occupancy % & RevPAR) Progress Month-to-Month ?** This informs questions like **How did we get here?** by showing not only final results for a month (e.g. January 2018) after the month has concluded (Feb 1st), but what was the months' status at the begining of the month in question (January 1st), & at the beginning of earlier months (e.g. December 1st & November 1st). Outputs are faster if stored as a procedure & limiting 
+
+### 4) Data Marts as Stored Procedures
+
+<img width="500" alt="DataMart_Monthly_Occ_n_RevPAR_Progression_Month_2_Month" src="https://user-images.githubusercontent.com/71438198/99818188-31548c00-2b4e-11eb-993b-351417b202a9.png">
+
+
+**How stay months' KPIs (Occupancy % & RevPAR) Progress Month-to-Month ?**
+
+
+
+The 1st Data Mart informs questions like **How did we get here?** by showing not only final results for a month (e.g. January 2018) after the month has concluded (Feb 1st), but what the months' status was at the begining of the current month (January 1st) & of earlier months (e.g. December 1st & November 1st). Outputs are faster if stored as a procedure & limited to observing 3 stay months (Plase note that query duration was timed at upto 90 seconds).   
 
 The 1st Stored Procedure informs the Front Office Team (i.e. Reception) on **How many staff members should be scheduled on each day ?** by forecasting the number of rooms sold per day for the next 2 weeks' stay dates (with current date as an input parameter). Reception teams' workload are proportionate to how many guests are in-house, therefore the forecast informs the number of receptionists to schedule together on a shift. For simplicity, it is assumed no less than 2 employees should by scheduled & that 1 employee can handle ca. 93 rooms (i.e. 20% of available rooms - not all rooms check-in/out & not all guests need employee assistance).
 
@@ -119,12 +133,6 @@ The 3rd Stored Procedure provides 1 such use case for the 2nd, categorizing stay
 
 
 
-### 4) Data Marts
-- Monthly KPI Progression Month_2_Month
-### 5) Stored Procedures
-- Daily Forecast 2 weeks ahead
-- Daily Forecast 91 days ahead - Choose Segment | Total Hotel
-- Daily Forecast 91 days ahead & categorize Forecast versus Historical Average Room Sold by Season & Weekday 
 
 
 
