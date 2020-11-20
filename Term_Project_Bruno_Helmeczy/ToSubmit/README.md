@@ -44,6 +44,7 @@ Typical Key Performance Indicators (KPIs) to measure Hotels' management success 
 ##### By Customer Segments
 **How many Rooms Sold & RevPAR come from which segment ?**
 **Which are the most profitable segments ?**
+
 <img width="300" alt="EDA_2_KPIs_by_Segments" src="https://user-images.githubusercontent.com/71438198/99818190-3285b900-2b4e-11eb-85a7-7c1d7aef46c9.png">
 
 As visible, Transients account for both highest number of average rooms sold & ADR, resulting in the most Revenue contributed to the hotel. One can also see, Transients are the highest paying (i.e. most profitable) customers, with Corporate guests average being slightly below average. Their booking behaviour however tends to shift closer to arrival date, enabled by tech advancements. Based on this query alone, 1 could assume this hotel is Leisure focused. Standard Deviations are calculated to to help characterize these segments. Most notably, standard deviation / average of rooms are high for Groups, indicating the segments' ad-hoc nature. 
@@ -52,13 +53,18 @@ As visible, Transients account for both highest number of average rooms sold & A
 
 <img width="400" alt="EDA_4_KPIs_Changes_YOY_by_Segment" src="https://user-images.githubusercontent.com/71438198/99818192-331e4f80-2b4e-11eb-999e-2432a4498d1d.png">
 
-This view shows a grimm picture. Corporate guest accounted for 5% less occupancy, though this loss was compensated by Transients & Groups. Average Prices however, decreased by ca. 13% for Corporates & by ca. 20% for other segments. This resulted in a ca. 7.5 Million AED Revenue loss YOY (ca. 1.9M USD). 1 can see Corporates & Transients are disproportionately responsible for these losses.
+This view shows a grimm picture. Corporate guest accounted for 5% less occupancy, though this loss was compensated by Transients & Groups. Average Prices however, decreased by ca. 13% for Corporates & by ca. 20% for other segments. This resulted in a ca. 7.5 Million AED Annualized Revenue loss YOY (ca. 1.9M USD - November & December 2018 data is not available). 1 can see Corporates & Transients are disproportionately responsible for these losses. As significant changes are visible year-over-year, such comparisons are prioratized.
 
 ##### By Days of the Week & By Season
 **Where did these year-over-year losses come from ? Which Season / Weekday ? **
 
 <img width="301" alt="EDA_1_KPIs_by_Weekdays" src="https://user-images.githubusercontent.com/71438198/99775990-7c4fae80-2b10-11eb-9d81-7b9dfe7cd315.png">
- View Title: EDA_1: KPIs by Weekdays
+ 
+From this query by weekdays, 2 things can be observed: 1st, the hotel is rather business-focused, based on boasting higher Occupancies & RevPAR Monday - Thursday. 2nd, Year-Over-Year revenue losses are not disproportionately high for any day of the week, though highest for Thursday & Friday, the 2 weekend days in Dubai.
+
+**How can the Dubai Markets' annual seasonality be characterized ?**
+ 
+ <img width="288" alt="EDA_2_KPIs_by_Seasons" src="https://user-images.githubusercontent.com/71438198/99818189-3285b900-2b4e-11eb-8034-6932b9010b83.png"> <img width="265" alt="EDA_7_KPIs_Changes_YOY_by_Season" src="https://user-images.githubusercontent.com/71438198/99818197-33b6e600-2b4e-11eb-976e-90f50e142e94.png">
  
 **By Booking Windows** 
  
