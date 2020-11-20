@@ -81,15 +81,3 @@ FIELDS TERMINATED BY '	'
 LINES TERMINATED BY '\r\n' 
 IGNORE 1 LINES 
 (dDBA, Wk_BA, Bk_WD);
-
-CREATE TABLE dCalendar_DOR 
-(Dates_DOR date NOT NULL,
-PRIMARY KEY(Dates_DOR));
-
-SHOW VARIABLES LIKE "secure_file_priv";
-LOAD DATA INFILE 'c:/ProgramData/MySQL/MySQL Server 8.0/Uploads/dCalendar_DOR.txt' 
-INTO TABLE dCalendar_DOR 
-FIELDS TERMINATED BY '	' 
-LINES TERMINATED BY '\r\n' 
-IGNORE 1 LINES 
-(Dates_DOR);

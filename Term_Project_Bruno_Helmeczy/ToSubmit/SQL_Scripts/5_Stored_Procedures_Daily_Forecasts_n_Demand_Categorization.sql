@@ -1,6 +1,6 @@
 
 
--- Prcedure 1) Forecast 14 Days ahead - Most Likely, Pessimistic, Optimistic Scenarios
+-- Prcedure 1) Forecast 14 Days ahead - Most Likely Scenarios
 DROP PROCEDURE IF EXISTS Daily_2wk_Forecast;
 DELIMITER //
 CREATE PROCEDURE Daily_2wk_Forecast( IN Report_Date date )
@@ -50,16 +50,6 @@ with
                 order by Segments, Season, WD_WE, Bk_wd)
 select 		res_date as Reporting_Date , Stay_date as Forecasted_Date, DBA_Start, sum(Rooms_OTB) as Current_OTB,
                         
-		round(sum(Rooms_OTB) 
-			+ round(if(DBA_Start between 14 and 8, 
-						(sum(P1.Avg_Rooms_Sold)+(sum(P1.StDev_Rooms_Sold)/2))
-						+ (sum(P2.Avg_Rooms_Sold)+(sum(P2.StDev_Rooms_Sold)/2)) 
-						+ ((sum(P3.Avg_Rooms_Sold)+(sum(P3.StDev_Rooms_Sold)/2))*(Bkwd_DaysLeft/Current_BkWd_Length)),
-					  if(DBA_Start between 7 and 4, 
-						((sum(P1.Avg_Rooms_Sold)+(sum(P1.StDev_Rooms_Sold)/2)) 
-						+ (sum(P2.Avg_Rooms_Sold)+(sum(P2.StDev_Rooms_Sold)/2))*(Bkwd_DaysLeft/Current_BkWd_Length)),
-					  ((sum(P1.Avg_Rooms_Sold)+(sum(P1.StDev_Rooms_Sold)/2))*(Bkwd_DaysLeft/Current_BkWd_Length)))),2),0) 
-as FCST_Optimistic,
                         
 		round(sum(Rooms_OTB) 
 			+ round(if(DBA_Start between 14 and 8, 
@@ -69,17 +59,24 @@ as FCST_Optimistic,
 								(sum(P1.Avg_Rooms_Sold)+(sum(P2.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length))),
 						(sum(P1.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length)))),2),0) 
 as FCST_Most_Likely,
+
+		if((round(sum(Rooms_OTB) 
+			+ round(if(DBA_Start between 14 and 8, 
+							(sum(P1.Avg_Rooms_Sold) + sum(P2.Avg_Rooms_Sold)) 
+							+ (sum(P3.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length)),
+						if(DBA_Start between 7 and 4, 
+								(sum(P1.Avg_Rooms_Sold)+(sum(P2.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length))),
+						(sum(P1.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length)))),2),0)/93) <=2,2,
+			ceiling(round(sum(Rooms_OTB) 
+			+ round(if(DBA_Start between 14 and 8, 
+							(sum(P1.Avg_Rooms_Sold) + sum(P2.Avg_Rooms_Sold)) 
+							+ (sum(P3.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length)),
+						if(DBA_Start between 7 and 4, 
+								(sum(P1.Avg_Rooms_Sold)+(sum(P2.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length))),
+						(sum(P1.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length)))),2),0)/93)
+                        )
+as Rec_FTEs
                     
-		round(sum(Rooms_OTB) 
-        + round(if(DBA_Start between 14 and 8, 
-						(sum(P1.Avg_Rooms_Sold)-(sum(P1.StDev_Rooms_Sold)/2)
-						+ (sum(P2.Avg_Rooms_Sold)-(sum(P2.StDev_Rooms_Sold)/2)) 
-						+ (sum(P3.Avg_Rooms_Sold)-(sum(P3.StDev_Rooms_Sold)/2))*(Bkwd_DaysLeft/Current_BkWd_Length)),
-					if(DBA_Start between 7 and 4, 
-							((sum(P1.Avg_Rooms_Sold)-(sum(P1.StDev_Rooms_Sold)-2)) 
-							+ (sum(P2.Avg_Rooms_Sold)-(sum(P2.StDev_Rooms_Sold)/2))*(Bkwd_DaysLeft/Current_BkWd_Length)),
-						((sum(P1.Avg_Rooms_Sold)-(sum(P1.StDev_Rooms_Sold)/2))*(Bkwd_DaysLeft/Current_BkWd_Length)))),2),0) 
-as FCST_Pessimistic
                 
     from _2wk_OTB_at_CURRENTDATE C
 
@@ -210,7 +207,7 @@ with
 		from 0_cdt_2_segments_daily_kpis
 			where dba_end = -1 and stay_date <= Report_Date
 		group by Season, Segments, Wd_WE )
-select 		Res_date as FCST_Date, Stay_date, DBA_Start,
+select 	SelectedSegment,	Res_date as FCST_Date, Stay_date, DBA_Start,
 
 		round(sum(Rooms_OTB) 
 			+ round(  if(DBA_Start between 64 and 91 , 
@@ -391,6 +388,8 @@ group by stay_date order by Stay_date;
 END //
 DELIMITER ;
 
+
+
 -- Selected Segments: Choose from: 'Transients','Groups','Corporate','Contracted Leisure'
 		-- Use only Wildcards to Forecast ALL segments
 call _3month_Forecast('2018-05-14','Trans%');
@@ -399,7 +398,10 @@ call _3month_Forecast('2018-05-14','Trans%');
 -- Prcedure 3) Categorize Days 91 days ahead into ahead / behind schedule
 DROP PROCEDURE IF EXISTS _3Month_Demand_Categ;
 DELIMITER //
-CREATE PROCEDURE _3Month_Demand_Categ( IN Report_Date date, In SelectedSegment varchar(30))
+CREATE PROCEDURE _3Month_Demand_Categ( 
+					IN Report_Date date, 
+                    In SelectedSegment varchar(30),
+                    in vs_Pace varchar(10))
 BEGIN
 
 
@@ -509,7 +511,7 @@ with
 		from 0_cdt_2_segments_daily_kpis
 			where dba_end = -1 and stay_date <= Report_date
 		group by Season, Segments, Wd_WE )
-select 		c.Segments, Res_date as FCST_Date, Stay_date, DBA_Start,
+select 		SelectedSegment, Res_date as FCST_Date, Stay_date, DBA_Start,
 -- 			c.Segments, c.Season, c.WD_WE,   
 	-- 		BKWD_Now, BkWD_Next, BkWd_2next,
 
@@ -630,8 +632,8 @@ if(round(sum(Rooms_OTB)
                       )
                       )
                       ,2)
-                      ,0) >= Avg_Rns_Sold, 'AHEAD', 'BEHIND')  
-	as Pace_vs_LY
+                      ,0) >= Avg_Rns_Sold, 'Strong', 'Weak')  
+	as Forecasted_Demand_vs_LY
                 
     from _OTB_at_CURRENTDATE C
 
@@ -653,11 +655,13 @@ left join Current_Projections P8 on c.Segments = p8.segments and c.season = p8.s
         c.BkWd_7Next =  p8.BK_WD
 left join Historical_Averages HA on c.Segments = HA.Segments and c.Season = HA.Season and c.wd_we = HA.WD_WE
 
-where   	c.Segments like SelectedSegment
-group by 	stay_date order by Stay_date;
+where   	c.Segments like SelectedSegment			 
+group by 	stay_date 
+having Forecasted_Demand_vs_LY like vs_Pace
+order by Stay_date;
 
 
 END //
 DELIMITER ;
 
-call _3Month_Demand_Categ('2018-03-01','Tran%');
+call _3Month_Demand_Categ('2018-03-01','Transie%', 'Str%');

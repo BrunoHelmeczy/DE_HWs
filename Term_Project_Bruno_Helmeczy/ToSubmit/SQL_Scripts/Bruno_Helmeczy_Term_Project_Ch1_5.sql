@@ -185,24 +185,9 @@ select 	Res_date,
 
 -- Ch3) Exploratory Data Analysis - By Weekdays, By Seasons, By Booking Windows
 
-	-- by DOW / WE_WD 
-    -- 1) KPIs by Weekdays -> Good to Keep -> Maybe drilldown by Segments -> 2)
-drop view if exists _1_EDA_01_Actual_KPIs_by_Weekdays_4_TotalHotel;
-		create view _1_EDA_01_Actual_KPIs_by_Weekdays_4_TotalHotel as
-select 	Date_of_week, f.WD_We,
-	    round((sum(rooms_sold)/sum(availability))*100,2) 	as 'Occ_%',
-        round(sum(total_revenue)/sum(rooms_sold),2) 		as ADR,
-        round(sum(total_revenue)/sum(availability),2)		as RevPAR,
-		round(avg(rooms_sold),2)							as Avg_Rooms_Sold,
-		round(std(rooms_sold),2)							as StDev_Rooms_Sold
-from 0_cdt_1_total_daily_kpis f
-	left join dcalendar_dos c 	on c.Dates_dos = f.Stay_date
-		where f.dba_end = -1
-		group by date_of_Week order by f.Dow_nr;
-
--- 2) Show Segment Tendencies by Weekdays
-drop view if exists _1_EDA_02_Actual_KPIs_by_Weekdays_n_Segments;
-		create view _1_EDA_02_Actual_KPIs_by_Weekdays_n_Segments as
+-- 2) -> KEEP -> #1
+drop view if exists _1_EDA_01_Actual_KPIs_by_Segments;
+		create view _1_EDA_01_Actual_KPIs_by_Segments as
 select 	Segments,
 	    round((sum(rooms_sold)/sum(availability))*100,2) 	as 'Occ_%',
         round(sum(total_revenue)/sum(rooms_sold),2) 		as ADR,
@@ -214,36 +199,9 @@ left join dcalendar_dos c 					on c.Dates_dos = f.Stay_Date
 	where f.dba_end = -1
 	group by Segments order by Segments, c.dow_nr ;
 
--- 3) Shows tendency YOY -? Maybe keep 2-4
-drop view if exists _1_EDA_03_Actual_KPIs_by_Weekdays_YOY;
-		create view _1_EDA_03_Actual_KPIs_by_Weekdays_YOY as	
-select  Date_of_Week,
-        round((sum(rooms_sold)/sum(availability))*100,2) 	as 'Occ_%'
-        ,round((sum(rooms_sold)/sum(availability))*100,2) 	- ly.Occ					as Occ_vs_LY
-        ,round(sum(total_revenue)/sum(rooms_sold),2) 									as ADR
-        ,round(sum(total_revenue)/sum(rooms_sold),2) 		- ly.ADR					as ADR_vs_LY
-        ,round(sum(total_revenue)/sum(availability),2)									as RevPAR
-        ,round(sum(total_revenue)/sum(availability),2) 		- ly.RevPAR					as RevPAR_vs_LY
-        ,round((sum(total_revenue)/sum(availability) - ly.RevPAR)*sum(availability),0) 	as Rev_YoY
-from 0_cdt_1_total_daily_kpis f
-left join dcalendar_dos c on c.Dates_dos = f.Stay_date
-left join  (select 	f.years, f.DOW_nr, f.WD_We,
-					round((sum(rooms_sold)/sum(availability))*100,2) 	as Occ,
-					round(sum(total_revenue)/sum(rooms_sold),2) 		as ADR,
-					round(sum(total_revenue)/sum(availability),2)		as RevPAR,
-					round(avg(rooms_sold),2)							as Avg_Rooms_Sold,
-					round(std(rooms_sold),2)							as StDev_Rooms_Sold,
-					round(std(rooms_sold)/avg(rooms_sold),2)			as Rel_StDev,
-					count(*) 											as Days 
-				from 0_cdt_1_total_daily_kpis f 
-					where f.dba_end = -1 and f.years = 2017
-						group by DOW_nr) ly on ly.DOW_nr = f.DOW_nr 
-	where f.dba_end = -1 and f.years = 2018
-	group by f.DOW_nr order by f.dow_nr;
-
--- 4) Show YOY Segment Performance KPIs & Revenue_Loss/Gain_vs_LY
-drop view if exists _1_EDA_04_Actual_KPIs_by_Segment_YOY;
-		create view _1_EDA_04_Actual_KPIs_by_Segment_YOY as		
+-- 2)
+drop view if exists _1_EDA_02_Actual_KPIs_by_Segment_YOY;
+		create view _1_EDA_02_Actual_KPIs_by_Segment_YOY as		
 select 	  f.Segments,
 		round((sum(rooms_sold)/sum(availability))*100,2) 	as 'Occ_%', ly.Occ LY_OCC
         ,round((sum(rooms_sold)/sum(availability))*100,2) 	- ly.Occ					as Occ_vs_LY
@@ -268,40 +226,24 @@ on f.Segments = ly.Segments
 	where f.dba_end = -1 and f.years = 2018
 	group by Segments order by  Segments;
 
-
--- 5) Combine Segment & Weekday breakdown to see KPIs - also YOY & Revenue Loss/Gain
-drop view if exists _1_EDA_05_Actual_KPIs_YOY_by_Weekdays_4_Segments;
-		create view _1_EDA_05_Actual_KPIs_YOY_by_Weekdays_4_Segments as	
-select 	f.WD_We, f.Segments,
-	    round((sum(rooms_sold)/sum(availability))*100,2) 	as 'Occ_%', ly.Occ LY_OCC
-        ,round((sum(rooms_sold)/sum(availability))*100,2) 	- ly.Occ					as Occ_vs_LY
-        ,round(sum(total_revenue)/sum(rooms_sold),2) 									as ADR
-        ,round(sum(total_revenue)/sum(rooms_sold),2) 		- ly.ADR					as ADR_vs_LY
-        ,round(sum(total_revenue)/sum(availability),2)									as RevPAR
-        ,round(sum(total_revenue)/sum(availability),2) 		- ly.RevPAR					as RevPAR_vs_LY
-        ,round((sum(total_revenue)/sum(availability) - ly.RevPAR)*sum(availability),0) 	as Rev_YoY
-from 0_cdt_2_segments_daily_kpis f
-left join ( select 	WD_We, Segments,
-				round((sum(rooms_sold)/sum(availability))*100,2) 	as Occ,
-				round(sum(total_revenue)/sum(rooms_sold),2) 		as ADR,
-				round(sum(total_revenue)/sum(availability),2)		as RevPAR,
-				round(avg(rooms_sold),2)							as Avg_Rooms_Sold,
-				round(std(rooms_sold),2)							as StDev_Rooms_Sold,
-				round(std(rooms_sold)/avg(rooms_sold),2)			as Rel_StDev,
-				count(*) 											as Days 
-from 0_cdt_2_segments_daily_kpis f
-	where f.dba_end = -1 and years = 2017
-    group by Segments, WD_WE) ly 
-    on f.wd_we = ly.WD_WE and f.Segments = ly.Segments
-	where f.dba_end = -1 and years = 2018
-	group by Segments, WD_WE 		order by Segments, WD_WE;
+-- 3) KPIs by Weekdays 
+drop view if exists _1_EDA_03_Actual_KPIs_by_Weekdays_4_TotalHotel;
+		create view _1_EDA_03_Actual_KPIs_by_Weekdays_4_TotalHotel as
+select 	Date_of_week, f.WD_We,
+	    round((sum(rooms_sold)/sum(availability))*100,2) 	as 'Occ_%',
+        round(sum(total_revenue)/sum(rooms_sold),2) 		as ADR,
+        round(sum(total_revenue)/sum(availability),2)		as RevPAR,
+		round(avg(rooms_sold),2)							as Avg_Rooms_Sold,
+		round(std(rooms_sold),2)							as StDev_Rooms_Sold
+from 0_cdt_1_total_daily_kpis f
+	left join dcalendar_dos c 	on c.Dates_dos = f.Stay_date
+		where f.dba_end = -1
+		group by date_of_Week order by f.Dow_nr;
 
 
-
-	-- by Season
--- 6) Intro Table (If there is such) - How hotel performs throughout the year
-drop view if exists _1_EDA_06_Actual_KPIs_by_Seasons;
-		create view _1_EDA_06_Actual_KPIs_by_Seasons as		
+-- 4) 
+drop view if exists _1_EDA_04_Actual_KPIs_by_Seasons;
+		create view _1_EDA_04_Actual_KPIs_by_Seasons as		
 select 	Season, 
 	    round((sum(rooms_sold)/sum(availability))*100,2) 	as 'Occ_%',
         round(sum(total_revenue)/sum(availability),2)		as RevPAR,
@@ -314,9 +256,10 @@ from 0_cdt_1_total_daily_kpis f
 	where f.dba_end = -1
 	group by Season					order by Revpar DESC;
     
--- 7) Show KPI changes & Revenue Gain/Loss YOY by Season
-drop view if exists _1_EDA_07_Actual_KPIs_by_Season_YOY;
-		create view _1_EDA_07_Actual_KPIs_by_Season_YOY as		
+
+-- 5) Show KPI changes & Revenue Gain/Loss YOY by Season
+drop view if exists _1_EDA_05_Actual_KPIs_by_Season_YOY;
+		create view _1_EDA_05_Actual_KPIs_by_Season_YOY as		
 select 	f.Season, 
 	    round((sum(rooms_sold)/sum(availability))*100,2) 								as 'Occ_%'
         ,round((sum(rooms_sold)/sum(availability))*100,2) 	- ly.Occ					as Occ_vs_LY
@@ -342,9 +285,11 @@ from 0_cdt_1_total_daily_kpis f
 	where f.dba_end = -1 and years = 2018
 	group by Season					order by Ly.RevPAR DESC;
 
--- 8) Okay -> Select by Seaason to see what happened
-drop view if exists _1_EDA_08_Actual_KPIs_YOY_by_Seasons_n_Segments;
-		create view _1_EDA_08_Actual_KPIs_YOY_by_Seasons_n_Segments as	
+
+
+-- 6) Okay -> Select by Seaason to see what happened
+drop view if exists _1_EDA_06_Actual_KPIs_YOY_by_Seasons_n_Segments;
+		create view _1_EDA_06_Actual_KPIs_YOY_by_Seasons_n_Segments as	
 select 	f.Segments, d.Season, 
 	    round((sum(rooms_sold)/sum(availability))*100,2) 								as Occ	
         ,round((sum(rooms_sold)/sum(availability))*100,2) 	- ly.Occ					as Occ_vs_LY
@@ -353,7 +298,6 @@ select 	f.Segments, d.Season,
         ,round(sum(total_revenue)/sum(availability),2)									as RevPAR		
 		,round(sum(total_revenue)/sum(availability),2) 		- ly.RevPAR					as RevPAR_vs_LY
         ,round(((sum(total_revenue)/sum(availability) - ly.RevPAR)*sum(availability))/1000000,3) 	as Rev_M_YoY	
-        
 from 0_cdt_2_segments_daily_kpis f
 	left join dcalendar_dos d 		on d.dates_dos = f.Stay_date
 	left join (
@@ -373,66 +317,10 @@ from 0_cdt_2_segments_daily_kpis f
     where f.dba_end = -1 and years = 2018
 	group by Season, Segments 	order by Segments, 	Stay_date;
 
--- 9)
-drop view if exists _1_EDA_09_Actual_KPIs_YOY_by_Weekdays_n_Seasons;
-		create view _1_EDA_09_Actual_KPIs_YOY_by_Weekdays_n_Seasons as		
-select 	f.Season, f.WD_WE,
-	    round((sum(rooms_sold)/sum(availability))*100,2) 								as Occ	
-        ,round((sum(rooms_sold)/sum(availability))*100,2) 	- ly.Occ					as Occ_vs_LY
-        ,round(sum(total_revenue)/sum(rooms_sold),2) 									as ADR	
-        ,round(sum(total_revenue)/sum(rooms_sold),2) 		- ly.ADR					as ADR_vs_LY
-        ,round(sum(total_revenue)/sum(availability),2)									as RevPAR		
-		,round(sum(total_revenue)/sum(availability),2) 		- ly.RevPAR					as RevPAR_vs_LY
-        ,round(((sum(total_revenue)/sum(availability) - ly.RevPAR)*sum(availability))/1000,1) 	as Rev_K_YoY	
-from 0_cdt_1_total_daily_kpis f
-	left join (
-			select 	Season, WD_WE,
-					round((sum(rooms_sold)/sum(availability))*100,2) 	as Occ,
-					round(sum(total_revenue)/sum(rooms_sold),2) 		as ADR,
-					round(sum(total_revenue)/sum(availability),2)		as RevPAR,
-					round(avg(rooms_sold),2)							as Avg_RNs,
-					round(std(rooms_sold),2)							as StDev_RNs,
-					round(std(rooms_sold)/avg(rooms_sold),2)			as Rel_StDev,
-					count(*) 											as Days 
-from 0_cdt_1_total_daily_kpis f
-	where f.dba_end = -1
-	group by Season, WD_WE					order by Stay_date
-    )
-    ly on ly.season = f.season and ly.WD_WE = f.WD_WE
-	where f.dba_end = -1 and years = 2018
-	group by Season, WD_WE					order by Stay_date;
-
--- 10)
-drop view if exists _1_EDA_10_Actual_KPIs_YOY_by_Seasons_Weekdays_n_Segments;
-	create view _1_EDA_10_Actual_KPIs_YOY_by_Seasons_Weekdays_n_Segments as		
-select 	f.Segments, f.Season, f.WD_WE, 
-	    round((sum(rooms_sold)/sum(availability))*100,2) 				as 'Occ_%'
-        ,round((sum(rooms_sold)/sum(availability))*100,2) 	- ly.Occ 	as Occ_vs_LY
-        ,round(sum(total_revenue)/sum(rooms_sold),2) 					as ADR
-        ,round(sum(total_revenue)/sum(rooms_sold),2) 		- ly.ADR 	as ADR_vs_LY
-        ,round(sum(total_revenue)/sum(availability),2)					as RevPAR
-        ,round(sum(total_revenue)/sum(availability),2) 		- ly.RevPAR	as RevPAR_vs_LY
-from 0_cdt_2_segments_daily_kpis f
-	left join (
-			select 	f.Season, f.WD_WE, Segments,
-					round((sum(rooms_sold)/sum(availability))*100,2) 	as Occ,
-					round(sum(total_revenue)/sum(rooms_sold),2) 		as ADR,
-					round(sum(total_revenue)/sum(availability),2)		as RevPAR,
-					round(avg(rooms_sold),2)							as Avg_RNs,
-					round(std(rooms_sold),2)							as StDev_RNs,
-					round(std(rooms_sold)/avg(rooms_sold),2)			as Rel_StDev,
-					count(*) 											as Days 
-from 0_cdt_2_segments_daily_kpis f
-	where f.dba_end = -1 and years = 2017
-	group by Season, WD_WE, Segments order by Segments, Stay_date, WD_WE) 
-    ly on ly.season = f.season and f.wd_WE = ly.WD_WE and f.Segments  = ly.Segments 
-    where f.dba_end = -1 and years = 2018
-	group by Season, WD_WE, Segments order by Segments , Stay_date, WD_WE;
-
--- 11) Totals by Booking Windows
+-- 7) Totals by Booking Windows
     -- by booking windows
-drop view if exists _1_EDA_11_Revenue_n_Rooms_Sold_by_BookingWindow;
-		create view _1_EDA_11_Revenue_n_Rooms_Sold_by_BookingWindow as		
+drop view if exists _1_EDA_07_Revenue_n_Rooms_Sold_by_BookingWindow;
+		create view _1_EDA_07_Revenue_n_Rooms_Sold_by_BookingWindow as		
 select 	Bk_wd,
 		round(sum(total_revenue)/sum(Pickup_RNs),2) 		as ADR
         ,round(sum(total_revenue)/1000000,2)				as Rev_Picked_up_M
@@ -443,22 +331,9 @@ select 	Bk_wd,
 from 0_cdt_3_total_daily_sales_bk_wd f
 	group by Bk_wd	order by  Bk_wd;
 
--- 12) Segments by Booking Window
-drop view if exists _1_EDA_12_Revenue_n_Rooms_Sold_per_BkWd_by_Segments;
-		create view _1_EDA_12_Revenue_n_Rooms_Sold_per_BkWd_by_Segments as			
-select 	Segments, Bk_wd,
-		round(sum(Pickup_Revenue)/sum(Pickup_RNs),2) 		as ADR
-        ,round(sum(pickup_revenue)/1000000,2)				as Rev_Picked_up_M        
-		,round(avg(Pickup_RNs),2)							as Avg_Rooms_Sold
-		,round(std(Pickup_RNs),2)							as StDev_Rooms_Sold
-        ,round(std(Pickup_RNs)/avg(Pickup_RNs),2)			as Rel_StDev
-from 0_cdt_4_segment_daily_kpis_bk_wd f
-	group by Segments, Bk_wd	order by Segments, Bk_wd;
- 
- 
- -- 13)
-drop view if exists _1_EDA_13_Revenue_n_Rooms_Sold_YOY_per_BkWd_by_Segments;
-		create view _1_EDA_13_Revenue_n_Rooms_Sold_YOY_per_BkWd_by_Segments as		
+ -- 8)
+drop view if exists _1_EDA_08_Revenue_n_Rooms_Sold_YOY_per_BkWd_by_Segments;
+		create view _1_EDA_08_Revenue_n_Rooms_Sold_YOY_per_BkWd_by_Segments as		
 select 	f.Segments, f.Bk_wd
 		,round(sum(Pickup_Revenue)/sum(Pickup_RNs),2)	 			as ADR
         ,round(avg(Pickup_RNs),2)									as Avg_RNs
@@ -480,28 +355,14 @@ from 0_cdt_4_segment_daily_kpis_bk_wd f
     group by Segments, Bk_wd	order by Segments, Bk_wd)
 	ly on ly.Segments = f.Segments and ly.bk_wd = f.bk_wd
 	where years = 2018
-    group by f.Segments, f.Bk_wd	order by Segments, Bk_wd;
-    
+    group by f.Segments, f.Bk_wd	order by Segments, Bk_wd;	
 
--- 13+1) -> Used in With clause for Forecasting
-drop view if exists _1_EDA_Plus1_AvgRooms_Sold_per_BkWd_by_Season_n_Segments;
-		create view _1_EDA_Plus1_AvgRooms_Sold_per_BkWd_by_Season_n_Segments as		
-select 	f.Season, f.WD_WE, Segments, Bk_wd,
-        round(sum(Pickup_revenue)/sum(Pickup_RNs),2) 		as ADR,
-		round(avg(Pickup_RNs),2)							as Avg_Rooms_Sold,
-		round(std(Pickup_RNs),2)							as StDev_Rooms_Sold,
-        round(std(Pickup_RNs)/avg(Pickup_RNs),2)			as Rel_StDev,
-        count(distinct(stay_date)) 							as Days 
-from 0_cdt_4_segment_daily_kpis_bk_wd f
-	group by Season, WD_WE, Segments, Bk_wd		order by Segments, Season, WD_WE, Bk_wd;
-
-
--- Ch4) Data Mart: Monthly KPI Progression Month_2_Month
+-- Ch4) Data Mart & Stored Procedures: 
+-- 4.1) Monthly KPI Progression Month_2_Month
 
 use hw1_nab_dataset;
 
--- 1st Data Mart: Stay_Months KPIs at start of earlier months - by Segments:
-	-- Final figures Monthly
+-- Final figures Monthly
 drop view if exists Final_Figures_Monthly_Segments;
 create view Final_Figures_Monthly_Segments as
 Select 	date_format(Stay_date, '%b %y') 	as Stay_Month, Segments,
@@ -524,12 +385,36 @@ select 	date_format(Stay_date, '%b %y') as Stay_Month,
     group by date_format(Stay_date, '%b %y'), date_format(k.res_date, '%b %y')
     order by Stay_date, res_date desc;
 
-drop view if exists Monthly_KPIs_by_Reservation_Month_Segment;
-create view Monthly_KPIs_by_Reservation_Month_Segment as
-select F.Stay_month, F.Segments,
-			Final_Occ_Percent, Occ_Month_Start, Occ_1Month_Prev, Occ_2Month_Prev,
-            Final_RevPAR, RevPAR_Month_Start, RevPAR_1Month_Prev, RevPAR_2Month_Prev
-	from final_figures_monthly_segments F
+call _Progression_Month_2_Month(1,'%');
+
+DROP PROCEDURE IF EXISTS _Progression_Month_2_Month;
+DELIMITER //
+CREATE PROCEDURE _Progression_Month_2_Month( 
+					IN _1st_Month integer, 
+                    In SelectedSegment varchar(30))
+Begin
+
+select F.Stay_month, SelectedSegment
+			,sum(Final_Occ_Percent)		as Final_Occ
+            ,sum(Occ_Month_Start)		as OccMonthStart
+            ,sum(Occ_1Month_Prev)		as OccMonthPrev
+            ,sum(Occ_2Month_Prev) 		as Occ2MonthPrev
+            ,sum(Final_RevPAR)			as Final__RevPAR
+            ,sum(RevPAR_Month_Start) 	as RevPARMonthStart
+            ,sum(RevPAR_1Month_Prev)	as RevPAR1MonthPrev
+            ,sum(RevPAR_2Month_Prev)	as RevPAR2MonthPrev
+	
+-- 			,sum(Final_Occ_Percent)		as Final_Occ
+--            ,sum(Occ_Month_Start)		as OccMonthStart
+--             ,sum(Occ_1Month_Prev)		as OccMonthPrev
+--             ,sum(Occ_2Month_Prev) 		as Occ2MonthPrev
+--             ,sum(Final_RevPAR)			as Final__RevPAR
+--             ,sum(RevPAR_Month_Start) 	as RevPARMonthStart
+--             ,sum(RevPAR_1Month_Prev)	as RevPAR1MonthPrev
+--             ,sum(RevPAR_2Month_Prev)	as RevPAR2MonthPrev
+	
+    
+    from final_figures_monthly_segments F
 left join (
 		select stay_month, Chosen_res_date as Month_Start
 			from monthly_otb_by_res_months_start 
@@ -566,18 +451,19 @@ left join (
 			from 0_cdt_2_segments_daily_kpis
             group by date_format(Stay_Date, '%b %y'), res_date, Segments ) 
 				L3 on f.stay_month = L3.stay_month  and _2Month_Prev = l3.res_date and F.Segments = l3.Segments 
-order by stay_month, Segments;
-    
-select * from Monthly_KPIs_by_Reservation_Month_Segment; 
+where 
+	month(Stay_date) >= _1st_Month and
+	f.Segments like SelectedSegment
+group by month(Stay_date), Year(Stay_date)
+order by month(Stay_date) 
+limit 6;
+END //
+DELIMITER ; 
 
--- Ch5) Stored Procedures:	
-	-- 5.1) Daily Forecast 	2 	weeks 	ahead - Pick Date to Forecast from
-    -- 5.2) Daily Forecast 	91 	days 	ahead  - 5.1 + Choose A Segment / All Segments
-    -- 5.3) Daily Forecast 	91 	days 	ahead + ID where Demand is behind vs Last Year
-    
+	
+-- 4.2) -- Forecast 14 Days ahead - Most Likely Scenario
+-- Report Dates: On Some dates, data was not collected - so no data exists to call  
 
-
--- Prcedure 1) Forecast 14 Days ahead - Most Likely, Pessimistic, Optimistic Scenarios
 DROP PROCEDURE IF EXISTS Daily_2wk_Forecast;
 DELIMITER //
 CREATE PROCEDURE Daily_2wk_Forecast( IN Report_Date date )
@@ -627,16 +513,6 @@ with
                 order by Segments, Season, WD_WE, Bk_wd)
 select 		res_date as Reporting_Date , Stay_date as Forecasted_Date, DBA_Start, sum(Rooms_OTB) as Current_OTB,
                         
-		round(sum(Rooms_OTB) 
-			+ round(if(DBA_Start between 14 and 8, 
-						(sum(P1.Avg_Rooms_Sold)+(sum(P1.StDev_Rooms_Sold)/2))
-						+ (sum(P2.Avg_Rooms_Sold)+(sum(P2.StDev_Rooms_Sold)/2)) 
-						+ ((sum(P3.Avg_Rooms_Sold)+(sum(P3.StDev_Rooms_Sold)/2))*(Bkwd_DaysLeft/Current_BkWd_Length)),
-					  if(DBA_Start between 7 and 4, 
-						((sum(P1.Avg_Rooms_Sold)+(sum(P1.StDev_Rooms_Sold)/2)) 
-						+ (sum(P2.Avg_Rooms_Sold)+(sum(P2.StDev_Rooms_Sold)/2))*(Bkwd_DaysLeft/Current_BkWd_Length)),
-					  ((sum(P1.Avg_Rooms_Sold)+(sum(P1.StDev_Rooms_Sold)/2))*(Bkwd_DaysLeft/Current_BkWd_Length)))),2),0) 
-as FCST_Optimistic,
                         
 		round(sum(Rooms_OTB) 
 			+ round(if(DBA_Start between 14 and 8, 
@@ -646,17 +522,24 @@ as FCST_Optimistic,
 								(sum(P1.Avg_Rooms_Sold)+(sum(P2.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length))),
 						(sum(P1.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length)))),2),0) 
 as FCST_Most_Likely,
+
+		if((round(sum(Rooms_OTB) 
+			+ round(if(DBA_Start between 14 and 8, 
+							(sum(P1.Avg_Rooms_Sold) + sum(P2.Avg_Rooms_Sold)) 
+							+ (sum(P3.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length)),
+						if(DBA_Start between 7 and 4, 
+								(sum(P1.Avg_Rooms_Sold)+(sum(P2.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length))),
+						(sum(P1.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length)))),2),0)/93) <=2,2,
+			ceiling(round(sum(Rooms_OTB) 
+			+ round(if(DBA_Start between 14 and 8, 
+							(sum(P1.Avg_Rooms_Sold) + sum(P2.Avg_Rooms_Sold)) 
+							+ (sum(P3.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length)),
+						if(DBA_Start between 7 and 4, 
+								(sum(P1.Avg_Rooms_Sold)+(sum(P2.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length))),
+						(sum(P1.Avg_Rooms_Sold)*(Bkwd_DaysLeft/Current_BkWd_Length)))),2),0)/93)
+                        )
+as Rec_FTEs
                     
-		round(sum(Rooms_OTB) 
-        + round(if(DBA_Start between 14 and 8, 
-						(sum(P1.Avg_Rooms_Sold)-(sum(P1.StDev_Rooms_Sold)/2)
-						+ (sum(P2.Avg_Rooms_Sold)-(sum(P2.StDev_Rooms_Sold)/2)) 
-						+ (sum(P3.Avg_Rooms_Sold)-(sum(P3.StDev_Rooms_Sold)/2))*(Bkwd_DaysLeft/Current_BkWd_Length)),
-					if(DBA_Start between 7 and 4, 
-							((sum(P1.Avg_Rooms_Sold)-(sum(P1.StDev_Rooms_Sold)-2)) 
-							+ (sum(P2.Avg_Rooms_Sold)-(sum(P2.StDev_Rooms_Sold)/2))*(Bkwd_DaysLeft/Current_BkWd_Length)),
-						((sum(P1.Avg_Rooms_Sold)-(sum(P1.StDev_Rooms_Sold)/2))*(Bkwd_DaysLeft/Current_BkWd_Length)))),2),0) 
-as FCST_Pessimistic
                 
     from _2wk_OTB_at_CURRENTDATE C
 
@@ -670,11 +553,10 @@ group by stay_date;
 END //
 DELIMITER ;
 
--- Report Dates: On Some dates, data was not collected - so no data exists to call  
 call Daily_2wk_Forecast('2018-05-14');
 
--- Prcedure 2) Forecast 91 Days ahead - Most Likely, Pessimistic, Optimistic Scenarios
-	-- Wildcard filter by segment
+-- 4.3) Forecast 91 Days ahead - Most Likely, Pessimistic, Optimistic Scenarios
+	-- Use Wildcard characters to filter by segment or see total hotel
 DROP PROCEDURE IF EXISTS _3Month_Forecast;
 DELIMITER //
 CREATE PROCEDURE _3Month_Forecast( IN Report_Date date, In SelectedSegment varchar(30))
@@ -969,14 +851,17 @@ END //
 DELIMITER ;
 
 -- Selected Segments: Choose from: 'Transients','Groups','Corporate','Contracted Leisure'
-		-- Use only Wildcards to Forecast ALL segments
+-- Use only Wildcards to Forecast ALL segments
 call _3month_Forecast('2018-05-14','Trans%');
 
-
--- Prcedure 3) Categorize Days 91 days ahead into ahead / behind schedule
+-- 4.4) Categorize Days 91 days ahead into ahead / behind schedule
+	-- Use Wildcards to filter segments or Strong / Weak demand
 DROP PROCEDURE IF EXISTS _3Month_Demand_Categ;
 DELIMITER //
-CREATE PROCEDURE _3Month_Demand_Categ( IN Report_Date date, In SelectedSegment varchar(30))
+CREATE PROCEDURE _3Month_Demand_Categ( 
+					IN Report_Date date, 
+                    In SelectedSegment varchar(30),
+                    in vs_Pace varchar(10))
 BEGIN
 
 
@@ -1086,7 +971,7 @@ with
 		from 0_cdt_2_segments_daily_kpis
 			where dba_end = -1 and stay_date <= Report_date
 		group by Season, Segments, Wd_WE )
-select 		c.Segments, Res_date as FCST_Date, Stay_date, DBA_Start,
+select 		SelectedSegment, Res_date as FCST_Date, Stay_date, DBA_Start,
 -- 			c.Segments, c.Season, c.WD_WE,   
 	-- 		BKWD_Now, BkWD_Next, BkWd_2next,
 
@@ -1207,8 +1092,8 @@ if(round(sum(Rooms_OTB)
                       )
                       )
                       ,2)
-                      ,0) >= Avg_Rns_Sold, 'AHEAD', 'BEHIND')  
-	as Pace_vs_LY
+                      ,0) >= Avg_Rns_Sold, 'Strong', 'Weak')  
+	as Forecasted_Demand_vs_LY
                 
     from _OTB_at_CURRENTDATE C
 
@@ -1230,11 +1115,13 @@ left join Current_Projections P8 on c.Segments = p8.segments and c.season = p8.s
         c.BkWd_7Next =  p8.BK_WD
 left join Historical_Averages HA on c.Segments = HA.Segments and c.Season = HA.Season and c.wd_we = HA.WD_WE
 
-where   	c.Segments like SelectedSegment
-group by 	stay_date order by Stay_date;
+where   	c.Segments like SelectedSegment			 
+group by 	stay_date 
+having Forecasted_Demand_vs_LY like vs_Pace
+order by Stay_date;
 
 
 END //
 DELIMITER ;
 
-call _3Month_Demand_Categ('2018-03-01','Tran%');
+call _3Month_Demand_Categ('2018-03-01','Transie%', 'Str%');

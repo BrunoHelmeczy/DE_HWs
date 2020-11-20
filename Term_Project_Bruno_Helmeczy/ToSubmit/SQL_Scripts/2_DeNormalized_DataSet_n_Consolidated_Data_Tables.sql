@@ -27,6 +27,8 @@ select
 			left join ddba dd					on dd.dDBA = f.Days_Before_Arrival
             left join dsegmentation	s			on s.RMLs = f.RMLs;
 
+select * from denormalized_dataset;
+
 
 		-- (1) daily kpis total
 -- Daily KPIs VIEW: Occ%, ADR, RevPAR

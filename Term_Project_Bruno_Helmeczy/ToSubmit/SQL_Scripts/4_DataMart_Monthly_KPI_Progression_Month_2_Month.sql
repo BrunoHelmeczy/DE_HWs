@@ -4,7 +4,7 @@ use hw1_nab_dataset;
 	-- Final figures Monthly
 drop view if exists Final_Figures_Monthly_Segments;
 create view Final_Figures_Monthly_Segments as
-Select 	date_format(Stay_date, '%b %y') 	as Stay_Month, Segments,
+Select 	date_format(Stay_date, '%b %y') 	as Stay_Month, Segments, Stay_Date,
 		sum(rooms_sold) 																	as Final_Rooms_Sold, 
 		round(((sum(rooms_sold))/(count(distinct(Stay_date))*465))*100,2) 				as Final_Occ_Percent,
         sum(total_revenue) 																	as Final_Revenue,
@@ -24,12 +24,38 @@ select 	date_format(Stay_date, '%b %y') as Stay_Month,
     group by date_format(Stay_date, '%b %y'), date_format(k.res_date, '%b %y')
     order by Stay_date, res_date desc;
 
-drop view if exists Monthly_KPIs_by_Reservation_Month_Segment;
-create view Monthly_KPIs_by_Reservation_Month_Segment as
-select F.Stay_month, F.Segments,
-			Final_Occ_Percent, Occ_Month_Start, Occ_1Month_Prev, Occ_2Month_Prev,
-            Final_RevPAR, RevPAR_Month_Start, RevPAR_1Month_Prev, RevPAR_2Month_Prev
-	from final_figures_monthly_segments F
+
+
+call _Progression_Month_2_Month(1,'%');
+
+DROP PROCEDURE IF EXISTS _Progression_Month_2_Month;
+DELIMITER //
+CREATE PROCEDURE _Progression_Month_2_Month( 
+					IN _1st_Month integer, 
+                    In SelectedSegment varchar(30))
+Begin
+
+select F.Stay_month, SelectedSegment
+			,sum(Final_Occ_Percent)		as Final_Occ
+            ,sum(Occ_Month_Start)		as OccMonthStart
+            ,sum(Occ_1Month_Prev)		as OccMonthPrev
+            ,sum(Occ_2Month_Prev) 		as Occ2MonthPrev
+            ,sum(Final_RevPAR)			as Final__RevPAR
+            ,sum(RevPAR_Month_Start) 	as RevPARMonthStart
+            ,sum(RevPAR_1Month_Prev)	as RevPAR1MonthPrev
+            ,sum(RevPAR_2Month_Prev)	as RevPAR2MonthPrev
+	
+-- 			,sum(Final_Occ_Percent)		as Final_Occ
+--            ,sum(Occ_Month_Start)		as OccMonthStart
+--             ,sum(Occ_1Month_Prev)		as OccMonthPrev
+--             ,sum(Occ_2Month_Prev) 		as Occ2MonthPrev
+--             ,sum(Final_RevPAR)			as Final__RevPAR
+--             ,sum(RevPAR_Month_Start) 	as RevPARMonthStart
+--             ,sum(RevPAR_1Month_Prev)	as RevPAR1MonthPrev
+--             ,sum(RevPAR_2Month_Prev)	as RevPAR2MonthPrev
+	
+    
+    from final_figures_monthly_segments F
 left join (
 		select stay_month, Chosen_res_date as Month_Start
 			from monthly_otb_by_res_months_start 
@@ -66,6 +92,12 @@ left join (
 			from 0_cdt_2_segments_daily_kpis
             group by date_format(Stay_Date, '%b %y'), res_date, Segments ) 
 				L3 on f.stay_month = L3.stay_month  and _2Month_Prev = l3.res_date and F.Segments = l3.Segments 
-order by stay_month, Segments;
-    
-select * from Monthly_KPIs_by_Reservation_Month_Segment; 
+where 
+	month(Stay_date) >= _1st_Month and
+	f.Segments like SelectedSegment
+group by month(Stay_date), Year(Stay_date)
+order by month(Stay_date) 
+limit 6;
+END //
+DELIMITER ; 
+
