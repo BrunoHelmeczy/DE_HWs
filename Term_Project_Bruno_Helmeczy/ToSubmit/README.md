@@ -138,9 +138,9 @@ This procedure extends the 1st Procedure by calculating daily forecasts for 91 d
 <img width="400" alt="Stored_Proc_3Mnth_DemandCateg_Snippet" src="https://user-images.githubusercontent.com/71438198/99820082-94472280-2b50-11eb-9e94-b1b3e956e8d4.png">
 
 The 3rd Stored Procedure provides 1 use case for daily forecasts, categorizing stay dates' forecasted rooms sold (i.e. Demand) as 'Strong' or 'Weak' compared to historical average rooms sold. Calling this procedure for the total hotel informs Management teams on how the hotel is most likely to perform in the future, while filtering for specific segments informs the personell responsible for the segment on where performance is leading / lagging vs last year. Finally, filtering specifically the Demand Categorization column directly uncovers periods the respective sales team should focus on (if Demand is Weaker), or periods where there is increased opportunity to earn more revenue (if Demand is Stronger). 
-As a Whole, questions this procedure can answer are:
 
-- Based on the most likely forecast with all available data, will the hotel most likely perform better or worse in the next 91 days vs average past results observed?
--  Based on the most likely forecast with all available data, will either segment most likely perform better or worse in the next 91 days vs average past results observed?
-- Based on the most likely forecast with all available data, which future stay dates represent an opportunity to make additional revenues?
-- Based on the most likely forecast with all available data, which future stay dates should sales teams focus on, to decrease lagging performance vs historical average results?
+Overall, questions this procedure can answer, based on the most likely forecasted outcome, with all available data considered, are:
+- **Will the hotel most likely perform better or worse in the next 91 days** vs average past results observed?
+- **Will either segment most likely perform better or worse in the next 91 days** vs average past results observed?
+- **Which future stay dates represent an opportunity to make additional revenues?**
+- **Which future stay dates should sales teams focus on, to decrease lagging performance vs historical average results?**
