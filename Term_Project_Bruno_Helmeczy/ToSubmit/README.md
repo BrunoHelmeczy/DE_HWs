@@ -56,7 +56,8 @@ As visible, Transients account for both highest number of average rooms sold & A
 This view shows a grimm picture. Corporate guest accounted for 5% less occupancy, though this loss was compensated by Transients & Groups. Average Prices however, decreased by ca. 13% for Corporates & by ca. 20% for other segments. This resulted in a ca. 7.5 Million AED Annualized Revenue loss YOY (ca. 1.9M USD - November & December 2018 data is not available). 1 can see Corporates & Transients are disproportionately responsible for these losses. As significant changes are visible year-over-year, such comparisons are prioratized.
 
 ##### By Days of the Week & By Season
-**Where did these year-over-year losses come from ? Which Season / Weekday ? **
+
+**Where did these year-over-year losses come from ? Which Season / Weekday ?**
 
 <img width="301" alt="EDA_1_KPIs_by_Weekdays" src="https://user-images.githubusercontent.com/71438198/99775990-7c4fae80-2b10-11eb-9d81-7b9dfe7cd315.png">
  
@@ -80,6 +81,21 @@ From this query by weekdays, 2 things can be observed: 1st, the hotel is rather 
  
  
 **By Booking Windows** 
+
+**In which booking windows does the hotel make the most money ?**
+
+<img width="237" alt="EDA_11_KPIs_by_Booking_Windows" src="https://user-images.githubusercontent.com/71438198/99818203-344f7c80-2b4e-11eb-95d1-d06e63824f66.png">
+
+Observing the query result above, note that of the ca. 64 Million AED Revenue earned in the 22 Month period, 33 Million AED, more than 50% of all Revenues are earned in the last 2 weeks before arrival.
+
+**How did Revenue per Booking Window Change Year over Year for Corporate & Transient guests ?**
+
+<img width="258" alt="EDA_13_KPIs_Changes_YOY_by_Segment_BkWd" src="https://user-images.githubusercontent.com/71438198/99818205-344f7c80-2b4e-11eb-9abf-7a0818fd8330.png">
+
+
+
+
+
  
  
  
