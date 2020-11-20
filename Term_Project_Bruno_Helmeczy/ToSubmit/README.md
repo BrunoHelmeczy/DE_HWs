@@ -11,11 +11,28 @@ The RM functions’ purpose is to maximize Gross Operating Profit (GOP) using di
 - **Revenue per Available Room** (RevPAR): The amount of money earned per available Room Night on average:
     - (Sum of Revenue Earned) / ((Count of Distinct Stay Nights) * (Nr of rooms in the hotel i.e. Availability)) = ADR * Occupancy % 
  
+ These measures are of interest from perspective of multiple dimensions:
+ - By Customer Segments: 
+ - By Stay Dates' dimensions: Days of the Week, Season, month, year the stay date of interest falls into
+ - By Relative Booking Date dimensions (i.e. Days Before Arrival): Nr of days / weeks ahead, or in a specific Booking Window/Period 
+ 
 
-This Project presents a MySQL-based solution to informing some of the stakeholders with the data available, after a diagnostic analysis extracting a series of queries stored as views.
-Specifically, the 1st Data Mart answers:
- - **How stay months' KPIs (Occupancy % & RevPAR) Progress Month-to-Month ?**
-This informs questions starting with 'How did we get here?' by showing not only final results for a month (e.g. January 18) after the month has concluded (Feb 1st), but what was the months' status at the begining of the month in question (January 1st), & at the beginning of previous months (e.g. December 1st & November 1st).  
+This Project presents a MySQL-based solution to informing some of the stakeholders with the data available, after a diagnostic analysis extracting a series of queries stored as views. Specifically:
+
+The 1st Data Mart answers **How stay months' KPIs (Occupancy % & RevPAR) Progress Month-to-Month ?** This informs questions like **How did we get here?** by showing not only final results for a month (e.g. January 2018) after the month has concluded (Feb 1st), but what was the months' status at the begining of the month in question (January 1st), & at the beginning of earlier months (e.g. December 1st & November 1st).
+
+The 1st Stored Procedure informs the Front Office Team (i.e. Reception) on **How many staff members should be scheduled on each day ?** by forecasting the number of rooms sold per day for the next 2 weeks' stay dates (with current date as an input parameter). Reception teams' workload are proportionate to how many guests are in-house, therefore the forecast informs the number of receptionists to schedule together on a shift. For simplicity, it is assumed no less than 2 employees should by scheduled & that 1 employee can handle ca. 93 rooms (i.e. 20% of available rooms - not all rooms check-in/out & not all guests need employee assistance).
+
+The 2nd Stored Procedure answers **How many rooms is the hotel likely to sell for each day 3 months ahead, at the total hotel or segment level, given a date on which the forecast is calculated?** This extends the 1st Procedure by calculating daily forecasts for 91 days into the future (from an inputed report creation date), while accounting for uncertainty (by calculating Most Likely, Optimistic & Pessimistic scenarios) & enabling forecasting either for the hotel in total, or a specific segment. Forecasts are calculated by adding rooms sold at the moment & expected rooms to be sold in the future. This expectation is calculated by summing historical averages & standard deviations of rooms sold in each future booking window of **Similar Stay Dates**. A similar stay date is defined as that which falls in the same Season & same Weekday-type (i.e. WD for Weekday, or WE for Weekend). 
+
+**Example:** When forecasting **Transient** demand for the stay date of **31st March, 2018** (a weekend day), on the report date of 1st March 2018 (i.e. 31 days before arrival), 
+
+
+, calculated as conditioned on the segment forecasted, the Season & the Weekday-type the stay date falls into,  
+
+It is assumed these outputs are extracted & loaded to other software tools for further processing / reporting / visualization. 1 such example is provided with the 3rd Stored Procedure. 
+
+The 3rd Stored Procedure provides 1 such use case for the 2nd, categorizing stay dates' forecasted rooms sold (i.e. Demand) as 'Strong' or 'Weak' compared to historical average rooms sold  
 
 
 
