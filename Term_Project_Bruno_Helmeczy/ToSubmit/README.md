@@ -15,6 +15,21 @@ The RM functions’ purpose is to maximize Gross Operating Profit (GOP) using di
  - By Customer Segments: 
  - By Stay Dates' dimensions: Days of the Week, Season, month, year the stay date of interest falls into
  - By Relative Booking Date dimensions (i.e. Days Before Arrival): Nr of days / weeks ahead, or in a specific Booking Window/Period 
+
+
+**By Customer Segments**
+
+
+
+
+**By Days of the Week & By Season**
+
+ 
+ <img width="401" alt="EDA_1_KPIs_by_Weekdays" src="https://user-images.githubusercontent.com/71438198/99775990-7c4fae80-2b10-11eb-9d81-7b9dfe7cd315.png">
+ View Title: EDA_1: KPIs by Weekdays
+ 
+**By Booking Windows** 
+ 
  
  
 
@@ -51,4 +66,4 @@ The 3rd Stored Procedure provides 1 such use case for the 2nd, categorizing stay
 - Daily Forecast 91 days ahead & categorize Forecast versus Historical Average Room Sold by Season & Weekday 
 
 
-<img width="401" alt="EDA_1_KPIs_by_Weekdays" src="https://user-images.githubusercontent.com/71438198/99775990-7c4fae80-2b10-11eb-9d81-7b9dfe7cd315.png">
+
