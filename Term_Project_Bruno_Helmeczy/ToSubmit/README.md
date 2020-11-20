@@ -3,7 +3,15 @@
 ### Preface
 The dataset is 2 years’ room sales data from Novotel Al Barsha, a 465 room, 4-star hotel in Dubai, operated by AccorHotels under a Management Agreement, a distinguishing factor, as the Revenue Management (RM) process is executed in-house, not from central locations. The RM Process is a perpetual cycle of analysing data obtained from a variety of sources in light of a pre-defined goal (usually maximizing operating profits), calculating forecasts on Strategic-, Tactical-, & Operational levels, & optimizing decision-making with regards to pricing & room availability controls. 
 
-The RM functions’ purpose is to maximize Gross Operating Profit (GOP) using disciplined, data-driven supply- & demand management tactics, manifested as optimizing room prices & room availability, subject to seasons, markets, room types, customer segments, booking channels & the number of available rooms. Thus, structured & reliable information is indispensable for attaining RM’s objectives.  Indeed, the RM department has increasingly been responsible for managing & providing all necessary information in a condensed format to many departments & stakeholders, most crucially the commercial team (Sales & Marketing), leadership (General Managers, Ownership representatives), & the front office team (Reception). This Project presents a MySQL-based solution to informing some of the stakeholders with the data available, after a diagnostic analysis extracting a series of queries stored as views. Typical Key Performance Indicators (KPIs) to measure Hotels' management success are: 
+The RM functions’ purpose is to maximize Gross Operating Profit (GOP) using disciplined, data-driven supply- & demand management tactics, manifested as optimizing room prices & room availability, subject to seasons, markets, room types, customer segments, booking channels & the number of available rooms. Thus, structured & reliable information is indispensable for attaining RM’s objectives.  Indeed, the RM department has increasingly been responsible for managing & providing all necessary information in a condensed format to many departments & stakeholders, most crucially the commercial team (Sales & Marketing), leadership (General Managers, Ownership representatives), & the front office team (Reception). This Project presents a MySQL-based solution to informing some of the stakeholders with the data available, after a diagnostic analysis extracting a series of queries stored as views. 
+
+
+
+### 3) Exploratory Data Analysis - By Weekdays / By Seasons / By Booking Windows
+- Findings & tables by topic
+
+
+Typical Key Performance Indicators (KPIs) to measure Hotels' management success are: 
 - **Occupancy %** (Occ%): The percentage of available room nights sold in a given time period: 
     - (Sum of Room Nights sold) / ((Count of Distinct Stay Nights) * (Nr of rooms in the hotel i.e. Availability))  
 - **Average Daily Rate** (ADR): The Average Price at which all rooms were sold:
@@ -11,10 +19,13 @@ The RM functions’ purpose is to maximize Gross Operating Profit (GOP) using di
 - **Revenue per Available Room** (RevPAR): The amount of money earned per available Room Night on average:
     - (Sum of Revenue Earned) / ((Count of Distinct Stay Nights) * (Nr of rooms in the hotel i.e. Availability)) = ADR * Occupancy % 
  
- These measures are of interest from perspective of multiple dimensions, or their combinations:
- - By Customer Segments: 
- - By Stay Dates' dimensions: Days of the Week, Season, month, year the stay date of interest falls into
- - By Relative Booking Date dimensions (i.e. Days Before Arrival): Nr of days / weeks ahead, or in a specific Booking Window/Period 
+ #### 3.1) Analytical Questions
+- Questions to answer with EDA / Data Marts / Stored Procedures
+ 
+ The KPIs above are of interest from perspective of multiple dimensions, or their combinations:
+ - **By Customer Segments:** Any business's 1st question is **How do we make money & Selling to who ?**
+ - **By Stay Dates:** Days of the Week, Season, month, year the stay date of interest falls into. As the product hotels sell, similar stay dates are aggregated together for further analysis, in hopes of extracting generalizable insights onto similar situations in the future.  Hotels show 2 types of seasonality consistently: Weekly & Annual
+ - **By Relative Booking Date** (i.e. Days Before Arrival): Nr of days / weeks ahead, or in a specific Booking Window/Period. As the product is perishable (past stay nights cannot be sold) & the objective is to maximize total revenues for a stay date, season, or year, a key dimension is to observe guests' buying behaviour in terms of how far in advance do they book relative to their arrival. Research has shown, that influencing guests' purchase timing behaviour is possible only to a minimal extent, due to the abundance of alternatives available at any given moment (e.g. the number of hotels in Dubai). Thus, Sales performance can be seperately evaluated by booking windows, as different customers are booking in different windows. Though lagging KPIs might be compsensated closer to arrival, potential customers choosing to book elsewhere cannot be recovered later, as they already chosen a competitor.
 
 
 **By Customer Segments**
@@ -55,10 +66,7 @@ The 3rd Stored Procedure provides 1 such use case for the 2nd, categorizing stay
 - Loading Data - Purpose per table
 ### 2) Dataset Denormalization & Consolidated Data Tables
 - brief variable descriptions
-### 3) Analytical Questions
-- Questions to answer with EDA / Data Marts / Stored Procedures
-### 3) Exploratory Data Analysis - By Weekdays / By Seasons / By Booking Windows
-- Findings & tables by topic
+
 ### 4) Data Marts
 - Monthly KPI Progression Month_2_Month
 ### 5) Stored Procedures
