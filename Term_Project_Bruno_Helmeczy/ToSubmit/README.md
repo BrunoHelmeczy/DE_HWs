@@ -67,13 +67,13 @@ From this query by weekdays, 2 things can be observed: 1st, the hotel is rather 
 
 **How can the Dubai Markets' annual seasonality be characterized ?**
  
- <img width="288" alt="EDA_2_KPIs_by_Seasons" src="https://user-images.githubusercontent.com/71438198/99818189-3285b900-2b4e-11eb-8034-6932b9010b83.png"> <img width="288" alt="EDA_7_KPIs_Changes_YOY_by_Season" src="https://user-images.githubusercontent.com/71438198/99818197-33b6e600-2b4e-11eb-976e-90f50e142e94.png">
+ <img width="400" alt="EDA_2_KPIs_by_Seasons" src="https://user-images.githubusercontent.com/71438198/99818189-3285b900-2b4e-11eb-8034-6932b9010b83.png"> <img width="400" alt="EDA_7_KPIs_Changes_YOY_by_Season" src="https://user-images.githubusercontent.com/71438198/99818197-33b6e600-2b4e-11eb-976e-90f50e142e94.png">
  
  1st, note from the query left-hand side, that Seasons were designated based on RevPAR, i.e. on how much money can be made per available room in any given period. Also note the Nr of days in each season (considering the 22 months observed). Annual seasonality in Dubai can thus be characterized with longer High & Low Seasons, with a ca. Month-long transition period, noted as Mid season. Low season are those of the Arab summer May - September (40 degrees celsius in shade). What complicates this (also the reason for not denoting Months' seasons) is the lunar month of Ramadan (shifting 2 weeks / year), which during this time was in June & May, resulting in RevPARs ca. 50% lower vs even Low Season. 2nd, heaviest RevPAR losses were during the transition period in Mid season & most revenue was lost during High season, despite Occupancy increasing with 3.2%.
  
  **During which season did Corporates' & Transients' lost the most Revenue ?**
  
- <img width="334" alt="EDA_8_KPIs_Changes_YOY_by_Segments_n_Seasons" src="https://user-images.githubusercontent.com/71438198/99818198-33b6e600-2b4e-11eb-8892-c22622d463b7.png">
+ <img width="400" alt="EDA_8_KPIs_Changes_YOY_by_Segments_n_Seasons" src="https://user-images.githubusercontent.com/71438198/99818198-33b6e600-2b4e-11eb-8892-c22622d463b7.png">
  
  Having noted the most revenue was lost on Corporates & Transients, focus is dedicated to these segments. From the table above, note that Transient RevPAR losses during low season & Ramadan are relatively small, however during high season the decrease in average price netted 1.3M AED Revenue loss annualized. 
  
@@ -107,32 +107,40 @@ Observing the query result above, note that of the ca. 64 Million AED Revenue ea
 
 ### 4) Data Marts as Stored Procedures
 
-<img width="500" alt="DataMart_Monthly_Occ_n_RevPAR_Progression_Month_2_Month" src="https://user-images.githubusercontent.com/71438198/99818188-31548c00-2b4e-11eb-993b-351417b202a9.png">
-
+#### 4.1) With Static Data 
 
 **How stay months' KPIs (Occupancy % & RevPAR) Progress Month-to-Month ?**
 
+<img width="650" alt="DataMart_Monthly_Occ_n_RevPAR_Progression_Month_2_Month" src="https://user-images.githubusercontent.com/71438198/99818188-31548c00-2b4e-11eb-993b-351417b202a9.png">
 
+The 1st Data Mart informs questions like **'How did we get here?'** arising during strategy meetings, by showing not only final results for a month (e.g. January 2018) after the month has concluded (Feb 1st), but what the months' status was at the begining of the current month (January 1st) & of earlier months (e.g. December 1st & November 1st). Outputs are faster if stored as a procedure & limited to observing 3 stay months (Plase note that query duration was timed at upto 90 seconds).   
 
-The 1st Data Mart informs questions like **How did we get here?** by showing not only final results for a month (e.g. January 2018) after the month has concluded (Feb 1st), but what the months' status was at the begining of the current month (January 1st) & of earlier months (e.g. December 1st & November 1st). Outputs are faster if stored as a procedure & limited to observing 3 stay months (Plase note that query duration was timed at upto 90 seconds).   
+#### 4.2) With Data available as of a certain point in time
 
-The 1st Stored Procedure informs the Front Office Team (i.e. Reception) on **How many staff members should be scheduled on each day ?** by forecasting the number of rooms sold per day for the next 2 weeks' stay dates (with current date as an input parameter). Reception teams' workload are proportionate to how many guests are in-house, therefore the forecast informs the number of receptionists to schedule together on a shift. For simplicity, it is assumed no less than 2 employees should by scheduled & that 1 employee can handle ca. 93 rooms (i.e. 20% of available rooms - not all rooms check-in/out & not all guests need employee assistance).
+The stored procedures below are all based on forecasts, which are informed by data from similar stay dates, available at the time the report is created calling the stored procedure. Forecasts use historical averages & standard deviations, observed by booking windows for similar stay dates. These are continuously refined statistics, as new data comes available. This is resolved by sub-querying data from relevant tables available as of the data the stored procedures are called. 
 
-The 2nd Stored Procedure answers **How many rooms is the hotel likely to sell for each day 3 months ahead, at the total hotel or segment level, given a date on which the forecast is calculated?** This extends the 1st Procedure by calculating daily forecasts for 91 days into the future (from an inputed report creation date), while accounting for uncertainty (by calculating Most Likely, Optimistic & Pessimistic scenarios) & enabling forecasting either for the hotel in total, or a specific segment. Forecasts are calculated by adding rooms sold at the moment & expected rooms to be sold in the future. This expectation is calculated by summing historical averages & standard deviations of rooms sold in each future booking window of **Similar Stay Dates**. A similar stay date is defined as that which falls in the same Season & same Weekday-type (i.e. WD for Weekday, or WE for Weekend). 
+**How many Employees should the Reception be staffed with ?**
 
-**Example:** When forecasting **Transient** demand for the stay date of **31st March, 2018** (a weekend day), on the report date of 1st March 2018 (i.e. 31 days before arrival), 
+<img width="400" alt="Stored_Proc_2Wk_Forecast_4_FO" src="https://user-images.githubusercontent.com/71438198/99818206-34e81300-2b4e-11eb-89e5-f1955ba634b2.png">
 
+This Stored Procedure informs the Front Office Team (i.e. Reception) on **How many staff members should be scheduled on each day in the next 2 weeks?** by forecasting the number of rooms sold per day for the next 2 weeks' stay dates (with current date as an input parameter). Reception teams' workload are proportionate to how many guests are in-house, therefore the forecast informs the number of receptionists to schedule together on a shift. For simplicity, it is assumed no less than 2 employees should by scheduled & that 1 employee can handle ca. 93 rooms (i.e. 20% of available rooms - not all rooms check-in/out & not all guests need employee assistance).
 
-, calculated as conditioned on the segment forecasted, the Season & the Weekday-type the stay date falls into,  
+**How many rooms is the hotel likely to sell for each day 3 months ahead, at the total hotel or segment level, given a date on which the forecast is calculated?**
 
-It is assumed these outputs are extracted & loaded to other software tools for further processing / reporting / visualization. 1 such example is provided with the 3rd Stored Procedure. 
+<img width="400" alt="Stored_Proc_3Mnth_Forecast_Snippet" src="https://user-images.githubusercontent.com/71438198/99818208-34e81300-2b4e-11eb-90fd-a81cf019d800.png">
 
-The 3rd Stored Procedure provides 1 such use case for the 2nd, categorizing stay dates' forecasted rooms sold (i.e. Demand) as 'Strong' or 'Weak' compared to historical average rooms sold  
+This procedure extends the 1st Procedure by calculating daily forecasts for 91 days into the future (from an inputed report creation date), while accounting for uncertainty (by calculating Most Likely, Optimistic & Pessimistic scenarios) & enabling forecasting either for the hotel in total, or a specific segment. Forecasts are calculated by adding rooms sold at the moment & expected rooms to be sold in the future. This expectation is calculated by summing historical averages & standard deviations of rooms sold in each future booking window of **Similar Stay Dates**. A similar stay date is defined as that which falls in the same Season & same Weekday-type (i.e. WD for Weekday, or WE for Weekend). 
 
+**Example:** When forecasting **Transient** demand for the stay date of **31st March, 2018** (a weekend day in High Season), on the report date of 1st March 2018 (i.e. 31 days before arrival), expected most likely future room sales are calculated as the sum of average room sales in each future booking window of 31st March, 2018. To calculate optimistic future room sales half a standard deviation observed in each future booking window are added to average room sales per booking window, while for pessimistic forecasts half a standard deviation is subtracted from the average room sales by booking window observed for similar stay dates.  
 
+**Which future stay dates' forecasted 'Most Likely' demand is Stronger / Weaker vs Historical Average results ?**
 
+<img width="400" alt="Stored_Proc_3Mnth_DemandCateg_Snippet" src="https://user-images.githubusercontent.com/71438198/99820082-94472280-2b50-11eb-9e94-b1b3e956e8d4.png">
 
+The 3rd Stored Procedure provides 1 use case for daily forecasts, categorizing stay dates' forecasted rooms sold (i.e. Demand) as 'Strong' or 'Weak' compared to historical average rooms sold. Calling this procedure for the total hotel informs Management teams on how the hotel is most likely to perform in the future, while filtering for specific segments informs the personell responsible for the segment on where performance is leading / lagging vs last year. Finally, filtering specifically the Demand Categorization column directly uncovers periods the respective sales team should focus on (if Demand is Weaker), or periods where there is increased opportunity to earn more revenue (if Demand is Stronger). 
+As a Whole, questions this procedure can answer are:
 
-
-
-
+- Based on the most likely forecast with all available data, will the hotel most likely perform better or worse in the next 91 days vs average past results observed?
+-  Based on the most likely forecast with all available data, will either segment most likely perform better or worse in the next 91 days vs average past results observed?
+- Based on the most likely forecast with all available data, which future stay dates represent an opportunity to make additional revenues?
+- Based on the most likely forecast with all available data, which future stay dates should sales teams focus on, to decrease lagging performance vs historical average results?
