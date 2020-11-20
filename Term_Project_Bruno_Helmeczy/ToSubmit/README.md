@@ -16,3 +16,6 @@
 - Daily Forecast 2 weeks ahead
 - Daily Forecast 91 days ahead - Choose Segment | Total Hotel
 - Daily Forecast 91 days ahead & categorize Forecast versus Historical Average Room Sold by Season & Weekday 
+
+
+<img width="401" alt="EDA_1_KPIs_by_Weekdays" src="https://user-images.githubusercontent.com/71438198/99775990-7c4fae80-2b10-11eb-9d81-7b9dfe7cd315.png">
